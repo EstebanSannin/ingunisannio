@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<overlay id="sample-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <window id="main-window">
+    <popupset id="sample-popupset"/>
+  </window>
+  
+  
+  <script src="cmdline.js"/> 
+
+  <statusbar id="status-bar">
+   <hbox align="center">
+    
+    <statusbarpanel id="sample-status-bar"
+		    context="sample-status-popup"
+		    label="Ing.Unisannio"  
+		    tooltiptext="click rigth mouse">
+    </statusbarpanel> 
+          <image src='chrome://ingunisannio/content/ingunisannio.png'/>
+
+    </hbox>
+  </statusbar>
+  
+  
+  <popupset id="sample-popupset">
+    <popup id="sample-status-popup">
+      <menuitem label="avvisi"
+		oncommand="test()"/>
+      <menuitem label="about"
+		oncommand="aboutEsteban()"/>
+    </popup>
+  </popupset>
+  <script type="application/x-javascript;version=1.7" src="cmdline.js"/>
+  
+  
+  <script src="firegoogle-machine.js"/>
+  
+  <keyset id="mainKeyset">
+    <key id="key_fgtoggle" keycode="VK_F1" modifiers="shift" command="cmd_toggleToolbar"/>
+  </keyset>
+  
+  <commandset id="mainCommandSet">
+    <command id="cmd_toggleToolbar" oncommand="goToggleToolbar('firegoogletoolbar','cmd_toogleToolbar');"/>
+  </commandset>
+  
+  <toolbarpalette id="BrowserToolbarPalette">
+    <toolbaritem id="fgbar">
+      
+    <hbox align="center">
+      <label style="width:7em" value="Google Search:" control="searchtext"/>
+      <toolbarseparator/>
+      <textbox id="searchtext"/>
+    </hbox>
+      <toolbarbutton id="websearch" label="Web" oncommand="websearch();"/>
+      <toolbarbutton id="immsearch" label="Immagini" oncommand="imagesearch();"/>
+      <toolbarbutton id="grusearch" label="Gruppi" oncommand="groupsearch();"/>
+      <!--<toolbarbutton id="dirsearch" label="Directory" oncommand="directorysearch();"/>-->
+      <!--<toolbarbutton id="newsearch" label="News" oncommand="newssearch();"/>-->
+      <toolbarbutton id="pdfsearch" label="Search PDF" oncommand="pdfsearch()"/>
+     
+      
+      
+      <toolbarseparator/>
+      
+      <radiogroup orient="horizontal">
+        <radio id="italiano" selected="true" label="Ita"/>
+        <radio id="international" label="Web"/>
+      </radiogroup>
+      <toolbarseparator/>
+      <toolbarbutton id="about" label="About" oncommand="about()"/> 
+    
+    </toolbaritem>
+  </toolbarpalette>
+  
+  
+  <toolbox id="navigator-toolbox">
+    <toolbar accesskey="R" hidden="false" chromeclass="toolbar" class="chromeclass-toolbar" 
+	     customizable="false" id="firegoogletoolbar" mode="full" toolbarname="FireGoogle Toolbar [shift+F1]" 
+	     inherits="collapsed,hidden" persist="collapsed,hidden" defaultset="fgbar"/>
+  </toolbox>
+  
+  
+</overlay>

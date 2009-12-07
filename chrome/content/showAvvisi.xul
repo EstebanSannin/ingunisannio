@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<window class="dialog"
+   title="Avvisi" orient="vertical" 
+   autostretch="always" onload="sizeToContent()"
+   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<!-- Il template originale è di Jed Brown -->
+   
+<groupbox align="center" orient="horizontal">
+  <document>
+    wdfwdfwd
+  </document>
+  <hbox align="center">
+    <label style="width:10em" value="Multiline:"  />
+    <textbox id="multiline">
+      </textbox>
+    <button label="down"
+	    oncommand="alertSample()"/>
+  </hbox>
+  <script type="application/x-javascript;version=1.7" src="cmdline.js"/>
+</groupbox>
+</window>
+
+
+
+
+
+
+
+
