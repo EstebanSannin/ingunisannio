@@ -6,12 +6,43 @@
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   
   <script src="cmdline.js"/> 
-
-<listbox id="multiline" rows="5" flex="1">
-     <listitem label="Pearl"   />
-</listbox>
-<button label="update" oncommand="test()"/>
- 
+  
+  <vbox flex="1" style="overflow: auto">
+    <tabbox flex="1" width="600" height="400">
+      <tabs>
+	<tab label="Gestione Avvisi"/>
+      </tabs>
+      <tabpanels>
+	<tabpanel>
+	  <groupbox flex="1">
+	    <caption label="with single selection" />
+	    <listbox id="multiline" rows="10" flex="1" onselect="setText('multiline','single-text');">
+	      <listhead>
+		<listheader label="Titolo" />
+	      </listhead>
+	    </listbox>
+	    <hbox pack="center">
+	       <button label="Dettagli" />
+	       <description  id="single-text" value="(no input yet)" />
+	    </hbox>
+	     
+	    <vbox align="left">
+	      <label style="width:10em" value="Dettagli:"  />
+	      <textbox id="description-box" multiline="true" rows="7" cols="100" />
+	    </vbox>
+	    
+	    
+	    
+	  </groupbox>
+	</tabpanel>
+      </tabpanels>
+    </tabbox>
+   
+    <hbox>
+      <button label="update" oncommand="test()"/>
+    </hbox>  
+  </vbox>
+  
   <script type="application/x-javascript;version=1.7" src="cmdline.js"/>
 </window>
 
