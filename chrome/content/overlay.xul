@@ -24,6 +24,8 @@
   
   <popupset id="sample-popupset">
     <popup id="sample-status-popup">
+      <menuitem label="Show Avvisi"
+		oncommand="savvisi()"/>
       <menuitem label="avvisi"
 		oncommand="test()"/>
       <menuitem label="about"

@@ -21,7 +21,9 @@ const url = "http://www.ing.unisannio.it/avvisi/rss20.xml";
 function aboutEsteban() {
   window.openDialog("chrome://ingunisannio/content/about.xul");
 }
-
+function savvisi(){
+  window.openDialog("chrome://ingunisannio/content/showAvvisi.xul");
+}
 //Funzione per ottenere gli avvisi:
 /*function avvisi() {
   window.openDialog("chrome://ingunisannio/content/showAvvisi.xul");
@@ -53,7 +55,7 @@ function alertSample() {
 	avvisi = tempAvvisi;
   };  
   req.send(null);
-  document.getElementById('multiline').value = avvisi;   
+  document.getElementById('pippo').value = avvisi;   
   //alert(avvisi);
 }
 
@@ -79,8 +81,11 @@ function test(){
   }
   avvisi = tempAvvisi;      
   alert(avvisi);
+  document.getElementById("multiline").value = avvisi;
 }
-
+function stamp(){
+  document.getElementById("pippo").value = avvisi;
+}
 // Add tab:  
 //gBrowser.addTab("http://www.google.com/");
 
