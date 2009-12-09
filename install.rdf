@@ -9,7 +9,7 @@
                    em:creator="Stefano Viola"
                    em:description="Testing extension"
                    em:homepageURL="http://esteban.homelinux.org"
-                   em:iconURL="chrome://ingunisannio/content/ingunisannio.png"
+                   em:iconURL="chrome://ingunisannio/content/stemma.png"
                    em:aboutURL="chrome://ingunisannio/content/about.xul">
     <em:targetApplication RDF:resource="rdf:#$VAvFJ2"/>
     <em:file RDF:resource="urn:mozilla:extension:file:"/>

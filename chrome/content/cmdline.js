@@ -43,7 +43,7 @@ function test(){
   var req = new XMLHttpRequest();  
   req.open('GET', url, false);   
   req.send(null);
-  alert(req.status);
+  //alert(req.status); for debug
   if(req.status == 200){
     
     var xmldoc = req.responseXML;
@@ -63,9 +63,9 @@ function test(){
   
   allDescription = tempDesc;
   avvisi = tempAvvisi;      
-  document.getElementById("description-box").value = descriptionArray[1];
   initList = document.getElementById('multiline');   
   avvisiarray.forEach(appendToList);
+  
 }
 
 
@@ -76,11 +76,14 @@ function setText(listID,textID)
   var selectedItem = listBox.getSelectedItem(0);
   var pippo = listBox.currentIndex;
   var newText = selectedItem.getAttribute("label");
-  document.getElementById("description-box").value = pippo;
+  var str = descriptionArray[pippo+1];
+  var temp = str.replace("<br />", "", "gi");
+  document.getElementById("description-box").value = temp;
 }
 
-
-
+function studentPortal(){
+  gBrowser.addTab("https://servizistudenti.unisannio.it:4446/pls/self/gissweb.auth?p_cod_lingua=004&p_tipoutente=&p_opzione=");
+}
 
 // Add tab:  
 //gBrowser.addTab("http://www.google.com/");

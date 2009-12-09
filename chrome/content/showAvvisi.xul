@@ -8,41 +8,45 @@
   <script src="cmdline.js"/> 
   
   <vbox flex="1" style="overflow: auto">
-    <tabbox flex="1" width="600" height="400">
+    <tabbox flex="1" width="600" height="550">
       <tabs>
 	<tab label="Gestione Avvisi"/>
+	<tab label="Tool"/>
       </tabs>
       <tabpanels>
 	<tabpanel>
 	  <groupbox flex="1">
-	    <caption label="with single selection" />
+	    <caption label="Ultimi 20 Avvisi:" />
 	    <listbox id="multiline" rows="10" flex="1" onselect="setText('multiline','single-text');">
 	      <listhead>
 		<listheader label="Titolo" />
 	      </listhead>
 	    </listbox>
-	    <hbox pack="center">
-	       <button label="Dettagli" />
-	       <description  id="single-text" value="(no input yet)" />
+	    <hbox pack="left">
+	       <button label="Refresh" oncommand="test()"/>
 	    </hbox>
 	     
 	    <vbox align="left">
 	      <label style="width:10em" value="Dettagli:"  />
-	      <textbox id="description-box" multiline="true" rows="7" cols="100" />
+	      <textbox id="description-box" multiline="true" rows="7"
+	      cols="100" readonly="true" />
 	    </vbox>
-	    
-	    
-	    
 	  </groupbox>
+	</tabpanel>
+
+	<tabpanel>
+	  <document>
+	    <text value="Lavori in corso... controllate il mio profilo si github.com"
+	    class="url"
+            onclick="window.open('http://github.com/EstebanSannin/ingunisannio');"/>
+	  </document>
 	</tabpanel>
       </tabpanels>
     </tabbox>
-   
-    <hbox>
-      <button label="update" oncommand="test()"/>
-    </hbox>  
   </vbox>
-  
+  <hbox pack="center">
+    <button label="Chiudi" oncommand='window.close();'/>
+  </hbox>
   <script type="application/x-javascript;version=1.7" src="cmdline.js"/>
 </window>
 
