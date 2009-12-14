@@ -68,10 +68,10 @@ function test(){
   
   if(countItem == 0){
     avvisiarray.forEach(appendToList);
-    //alert("pippo 0"); for debug
+    alert("pippo 0");
  }
  else{
-   //alert("pippo >0"); for debug
+   alert("pippo >0");
    for(var j=0; j<countItem; j++){
      initList.removeItemAt(0);
    }
@@ -95,7 +95,12 @@ function studentPortal(){
   gBrowser.addTab("https://servizistudenti.unisannio.it:4446/pls/self/gissweb.auth?p_cod_lingua=004&p_tipoutente=&p_opzione=");
 }
 
-
+function playVideo(sourceId, targetId){
+     if (typeof(sourceId)=='string') {sourceId=document.getElementById(sourceId);}
+     if (typeof(targetId)=='string') {targetId=document.getElementById(targetId);}
+     targetId.innerHTML=sourceId.innerHTML;
+     return false;
+     }
 
 
 // Add tab:  

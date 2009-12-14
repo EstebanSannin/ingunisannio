@@ -10,17 +10,15 @@
 
   <statusbar id="status-bar">
    <hbox align="center">
-    
-    <statusbarpanel id="sample-status-bar"
-		    context="sample-status-popup"
-		    label="Ing.Unisannio"  
-		    tooltiptext="click rigth mouse">
-    </statusbarpanel> 
-          <image src='chrome://ingunisannio/content/ingunisannio.png'/>
-
-    </hbox>
+     <statusbarpanel id="sample-status-bar"
+		     context="sample-status-popup"
+		     label="Ing.Unisannio" 
+		     tooltiptext="click right">
+     </statusbarpanel> 
+     <image src='chrome://ingunisannio/content/ingunisannio.png'/>
+     
+   </hbox>
   </statusbar>
-  
   
   <popupset id="sample-popupset">
     <popup id="sample-status-popup">
