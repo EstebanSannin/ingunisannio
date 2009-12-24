@@ -1,2 +1,6 @@
 content     ingunisannio   chrome/content/
-overlay chrome://browser/content/browser.xul chrome://ingunisannio/content/overlay.xul
+
+overlay chrome://browser/content/browser.xul   chrome://ingunisannio/content/overlay.xul
+
+skin	ingunisannio	classic/1.0	skin/
+style	chrome://global/content/customizeToolbar.xul	chrome://ingunisannio/skin/overlay.css

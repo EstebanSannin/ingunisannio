@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This file is part of 'IngUnisannio'.
+
+  'IngUnisannio' is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License,
+  or any later version.
+  
+  'IngUnisannio' is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License
+  along with 'ItasaNotifier'.  If not, see <http://www.gnu.org/licenses/>.
+
+  Author: Stefano Viola, stefanoviola [at] sanniolug [dot] org 
+
+-->
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <window class="dialog"
 	title="ING Unisannio - About" orient="vertical" 
@@ -9,14 +28,19 @@
   <groupbox align="center" orient="horizontal">
     <vbox>
       <text value="Ing.Unisannio Firefox Extension" style="font-weight: bold; font-size: x-large;"/>
-      <text value="ver. 0.1"/>
+      <text value="ver. 1.1"/>
       <separator class="thin"/>
-      <text value="Ideated By:" style="font-weight: bold;"/>
-      <text value="Stefano Viola" class="url"
+      <text value="Creato da:" 
+	    style="font-weight: bold;"/>
+      <text value="Stefano Viola"
+	    style="text-link: pippo;"
+	    class="url"
             onclick="window.open('http://esteban.homelinux.org'); window.close();"/>
       <separator class="thin"/>
-      <text value="Home Page:" style="font-weight: bold;"/>
-      <text value="http://esteban.homelinux.org" class="url"
+      <text value="Home Page:" 
+	    style="font-weight: bold;"/>
+      <text value="http://esteban.homelinux.org" 
+	    class="url"
             onclick="window.open('http://esteban.homelinux.org'); window.close();"/>
       <separator class="thin"/>
     </vbox>
@@ -25,7 +49,8 @@
   </groupbox>
   <hbox>
     <spacer flex="1"/>
-    <button label="Chiudi" oncommand="window.close();"/>
+    <button label="Chiudi" 
+	    oncommand="window.close();"/>
   </hbox> 
   <script type="application/x-javascript;version=1.7" src="cmdline.js"/>
 </window>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<window class="dialog"
+	title="ING Unisannio - Avvisi" orient="vertical" 
+	autostretch="always" onload="sizeToContent()"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+
+  <script src="cmdline.js"/> 
+  
+  <vbox flex="1" style="overflow: auto">
+    <tabbox flex="1" width="700" height="550">
+      <tabs>
+	<tab label="Gestione Avvisi"/>
+	<tab label="Svago"/>
+      </tabs>
+      <tabpanels>
+	<tabpanel>
+	  <groupbox flex="1">
+	    <caption label="Ultimi 20 Avvisi:" />
+	    <listbox id="multiline" rows="11" flex="1" onselect="setText('multiline','single-text');">
+	      <listhead>
+		<listheader label="Titolo" />
+	      </listhead>
+	    </listbox>
+	    <hbox pack="left">
+	       <button label="Refresh" image="ingunisannio.png" oncommand="getAvvisi()"/>
+	    </hbox>
+	     
+	    <vbox align="left">
+	      <b>Pippo</b>
+	      <label style="width:10em" value="Dettagli:"  />
+	      <label style="width:10em" value="Data di Pubblicazione:"/>
+	      
+	      <description id="date-box" value="(no input yet)" />
+    
+	      <textbox id="description-box" multiline="true" rows="9"
+	      cols="100" readonly="true" />
+	    </vbox>
+	  </groupbox>
+	</tabpanel>
+
+	<tabpanel>
+
+	  <vbox flex="1" style="overflow: auto">
+	    
+	    <vbox align="left">
+	      <image style="width: 187px; height: 60px" src="chrome://ingunisannio/content/rai.gif" />
+	      <label value="" />
+	    </vbox>
+
+	     <script type="text/javascript">
+	      function playVideo(sourceId, targetId) {
+	      if (typeof(sourceId)=='string') {sourceId=document.getElementById(sourceId);}
+	      if (typeof(targetId)=='string') {targetId=document.getElementById(targetId);}
+	      targetId.innerHTML=sourceId.innerHTML;
+	      return false;
+	      }
+	    </script>
+	     <vbox>
+	     <hbox>
+	       <html:div id='videoPlayback'
+			 style='width: 405px; height:290px; background-color:blue;'>
+		 
+	       </html:div>	    
+	     </hbox>
+	     
+	     <spacer flex="1" />
+	     <description>
+	       <html:h3>Informazioni</html:h3>
+	       L'Estensione "Ing.Unisannio" e' stata testata su una
+	       versione di "Mozilla Firefox 3.5.5", installata su un
+	       sistema GNU/Linux. Pertanto non si
+	       assicura il funzionamento su altre piattaforme!
+	     </description>
+	     </vbox>
+	  </vbox>
+	  <html:div id='selectDemo1' style='display: none'>
+	    <html:embed id="rai1"
+			width="425%" height="350%"
+			name="plugin"
+			src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=983"
+			type="video/x-ms-asf" />
+	  </html:div>
+	    
+	    <html:div id='selectDemo2' style='display: none'>
+	      <html:embed id="rai2"
+			  width="425%" height="350%"
+			  name="plugin"
+			  src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=984"
+			  type="video/x-ms-asf" />
+	    </html:div>
+	    
+	    <html:div id='selectDemo3' style='display: none'>
+	      <html:embed id="rai3"
+			  width="425%" height="350%"
+			  name="plugin"
+			  src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=986"
+			  type="video/x-ms-asf" />
+	    </html:div>
+	    
+	    <html:div id='selectDemo4' style='display: none'>
+	      <html:embed id="rai4"
+			  width="425%" height="350%"
+			  name="plugin"
+			  src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=75708"
+			  type="video/x-ms-asf" />
+	    </html:div>
+	    
+	    <html:div id='selectDemo5' style='display: none'>
+	      <html:embed id="rainews24"
+			  width="425%" height="350%"
+			  name="plugin"
+			  src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=1"
+			  type="video/x-ms-asf" />
+	    </html:div>
+
+
+	    <groupbox flex="1">
+	      <caption label="Seleziona il Canale:" />
+	      <menulist label="channel">
+		<menupopup>
+		  <menuitem label=""/>
+		  <menuitem label="Rai Uno" oncommand='return playVideo("selectDemo1","videoPlayback")'/>
+		  <menuitem label="Rai Due" oncommand='return playVideo("selectDemo2","videoPlayback")'/>
+		  <menuitem label="Rai Tre" oncommand='return playVideo("selectDemo3","videoPlayback")'/>
+		  <menuitem label="Rai Quattro" oncommand='return playVideo("selectDemo4","videoPlayback")'/>
+		  <menuitem label="Rai News 24" oncommand='return playVideo("selectDemo5","videoPlayback")'/>
+		</menupopup>
+	      </menulist>
+	    </groupbox>
+	</tabpanel>
+
+      </tabpanels>
+    </tabbox>
+  </vbox>
+  <hbox pack="center">
+    <button label="Chiudi" oncommand='window.close();'/>
+  </hbox>
+  <script type="application/x-javascript;version=1.7" src="cmdline.js"/>
+</window>
+
+
+
+
+
+
+
+

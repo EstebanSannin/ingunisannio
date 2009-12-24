@@ -4,21 +4,18 @@
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
                    em:id="ingunisannio@esteban.homelinux.org"
-                   em:name="IngUnisannio Extension"
-                   em:version="0.01"
+                   em:version="1.0"
+                   em:type="2"
+                   em:name="IngUnisannio"
+                   em:description="Extension testing for student of Ing.Unisannio"
                    em:creator="Stefano Viola"
-                   em:description="Testing extension"
-                   em:homepageURL="http://esteban.homelinux.org"
                    em:iconURL="chrome://ingunisannio/content/stemma.png"
+                   em:homepageURL="http://esteban.homelinux.org"
                    em:aboutURL="chrome://ingunisannio/content/about.xul">
-    <em:targetApplication RDF:resource="rdf:#$VAvFJ2"/>
-    <em:file RDF:resource="urn:mozilla:extension:file:"/>
+    <em:targetApplication RDF:resource="rdf:#$4xter"/>
   </RDF:Description>
-  <RDF:Description RDF:about="urn:mozilla:extension:file:"
-                   em:package="content/" />
-  <RDF:Description RDF:about="rdf:#$VAvFJ2"
+  <RDF:Description RDF:about="rdf:#$4xter"
                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
-                   em:minVersion="1.0+"
+                   em:minVersion="3.0"
                    em:maxVersion="3.5.*" />
-<em:updateURL>http://estebansannin.github.com/update.rdf</em:updateURL> 
 </RDF:RDF>

@@ -1,83 +1,265 @@
 <?xml version="1.0"?>
-<overlay id="sample-overlay"
+<!--
+
+    This file is part of 'IngUnisannio'.
+    
+    'IngUnisannio' is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License,
+    or any later version.
+    
+    'IngUnisannio' is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with 'ItasaNotifier'.  If not, see <http://www.gnu.org/licenses/>.
+    
+    Author: Stefano Viola, stefanoviola [at] sanniolug [dot] org
+    
+  -->
+
+<overlay id="ingunisannio-overlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <window id="main-window">
-    <popupset id="sample-popupset"/>
+    <popupset id="ingunisannio-popupset"/>
   </window>
   
-  
   <script src="cmdline.js"/> 
-
-  <statusbar id="status-bar">
-   <hbox align="center">
-     <statusbarpanel id="sample-status-bar"
-		     context="sample-status-popup"
-		     label="Ing.Unisannio" 
-		     tooltiptext="click right">
-     </statusbarpanel> 
-     <image src='chrome://ingunisannio/content/ingunisannio.png'/>
-     
-   </hbox>
-  </statusbar>
   
-  <popupset id="sample-popupset">
-    <popup id="sample-status-popup">
-      <menuitem label="Show Avvisi"
-		oncommand="savvisi()"/>
+  <menupopup id="menu_ToolsPopup">
+    <menu id="ingunisannio-hello"
+	      label="Ing.Unisannio"
+	      style="FONT-FAMILY: Verdana,Helvetica;
+			     font-size: 10pt; 
+			     color: #0000ff;"
+		      class="menuitem-iconic"
+	      image="chrome://ingunisannio/content/ingunisannio.png"
+	  >
+    <menupopup>
+          <menuitem label="Student Portal"
+		    style="FONT-FAMILY: Verdana,Helvetica;
+			   font-size: 10pt; 
+			   font-style: italic; 
+			   color: #000000;"
+                    class="menuitem-iconic"
+		    image="chrome://ingunisannio/content/ingunisannio.png"
+		    oncommand="studentPortal()"/>
+	  <menuseparator/>
+	  <menuitem label="Show Avvisi"
+		    style="FONT-FAMILY: Verdana,Helvetica;
+			   font-size: 10pt; 
+			   font-style: italic; 
+			   color: #000000;"
+		    image="chrome://ingunisannio/content/rss.gif"
+                    class="menuitem-iconic"
+		    oncommand="savvisi()"/>
+	  <menuitem label="Forum Unisannio"
+		    style="FONT-FAMILY: Verdana,Helvetica;
+			   font-size: 10pt; 
+			   font-style: italic; 
+			   color: #000000;"
+                    class="menuitem-iconic"
+		    image="chrome://ingunisannio/content/forum.ico"
+		    oncommand="forum()"/>
+	  <menuitem label="about"
+		    style="FONT-FAMILY: Verdana,Helvetica;
+			   font-size: 10pt; 
+			   font-style: italic; 
+			   color: #000000;"
+                    class="menuitem-iconic"
+		    image="chrome://ingunisannio/content/info.png"
+		    oncommand="aboutEsteban()"/>
+	</menupopup>
+    </menu>
+  </menupopup>
+  
+  <statusbar id="status-bar">
+    <hbox align="center">
+      <statusbarpanel id="ingunisannio-status-bar"
+		      context="ingunisannio-status-popup"
+		      label="Ing.Unisannio"
+		      style="FONT-FAMILY: Verdana,Helvetica;
+			     font-size: 10pt; 
+			     color: #000000;"
+		      class="menuitem-iconic"
+		      tooltiptext="click right">
+      </statusbarpanel> 
+      <image src='chrome://ingunisannio/content/ingunisannio.png'/>
+    </hbox>
+  </statusbar>
+  <popupset id="ingunisannio-popupset">
+    <popup id="ingunisannio-status-popup">
       <menuitem label="Student Portal"
+		style="FONT-FAMILY: Verdana,Helvetica;
+                       font-size: 10pt; 
+		       font-style: italic; 
+		       color: #000000;"
+                class="menuitem-iconic"
+		image="chrome://ingunisannio/content/ingunisannio.png"
 		oncommand="studentPortal()"/>
+      <menuseparator/>
+      <menuitem label="Show Avvisi"
+		style="FONT-FAMILY: Verdana,Helvetica;
+                       font-size: 10pt; 
+		       font-style: italic; 
+		       color: #000000;"
+		image="chrome://ingunisannio/content/rss.gif"
+                class="menuitem-iconic"
+		oncommand="savvisi()"/>
+      <menuitem label="Forum Unisannio"
+		style="FONT-FAMILY: Verdana,Helvetica;
+                       font-size: 10pt; 
+		       font-style: italic; 
+		       color: #000000;"
+                class="menuitem-iconic"
+		image="chrome://ingunisannio/content/forum.ico"
+		oncommand="forum()"/>
       <menuitem label="about"
+		style="FONT-FAMILY: Verdana,Helvetica;
+                       font-size: 10pt; 
+		       font-style: italic; 
+		       color: #000000;"
+                class="menuitem-iconic"
+		image="chrome://ingunisannio/content/info.png"
 		oncommand="aboutEsteban()"/>
     </popup>
   </popupset>
+  
   <script type="application/x-javascript;version=1.7" src="cmdline.js"/>
+  <script src="toolbar.js"/>
   
-  
-  <script src="firegoogle-machine.js"/>
   
   <keyset id="mainKeyset">
     <key id="key_fgtoggle" keycode="VK_F1" modifiers="shift" command="cmd_toggleToolbar"/>
   </keyset>
-  
   <commandset id="mainCommandSet">
     <command id="cmd_toggleToolbar" oncommand="goToggleToolbar('firegoogletoolbar','cmd_toogleToolbar');"/>
   </commandset>
   
   <toolbarpalette id="BrowserToolbarPalette">
     <toolbaritem id="fgbar">
+      <hbox align="center">
+	<toolbarbutton label="Google:"
+		       style="FONT-FAMILY: Verdana,Helvetica;
+			      font-size: 10pt; 
+			      color: #000000;"
+                       class="menuitem-iconic"
+		       image="chrome://ingunisannio/content/google.png"
+		       control="searchtext"/>
+	<textbox id="searchtext"
+		 style="FONT-FAMILY: Verdana,Helvetica;
+			font-size: 9pt; 
+			font-style: italic; 
+			color: #000000;"
+                 class="menuitem-iconic"
+		 type="autocomplete" 
+		 autocompletesearch="form-history"
+		 />
+      </hbox>
+      <toolbarbutton id="websearch" 
+		     label="Web"
+		     style="FONT-FAMILY: Verdana,Helvetica;
+			    font-size: 10pt; 
+			    color: #000000;"
+                     class="menuitem-iconic"
+		     image="chrome://ingunisannio/content/web.png"
+		     oncommand="websearch();"/>
+      <toolbarbutton id="immsearch" 
+		     label="Immagini" 
+		     style="FONT-FAMILY: Verdana,Helvetica;
+			    font-size: 10pt; 
+			    color: #000000;"
+                     class="menuitem-iconic"
+		     image="chrome://ingunisannio/content/image.png"
+		     oncommand="imagesearch();"/>
+      <toolbarbutton id="pdfsearch" 
+		     label="PDF" 
+		     style="FONT-FAMILY: Verdana,Helvetica;
+			    font-size: 10pt; 
+			    color: #000000;"
+                     class="menuitem-iconic"
+		     image="chrome://ingunisannio/content/pdf.jpg"
+		     oncommand="pdfsearch()"/>
       
-    <hbox align="center">
-      <label style="width:7em" value="Google Search:" control="searchtext"/>
       <toolbarseparator/>
-      <textbox id="searchtext"/>
-    </hbox>
-      <toolbarbutton id="websearch" label="Web" oncommand="websearch();"/>
-      <toolbarbutton id="immsearch" label="Immagini" oncommand="imagesearch();"/>
-      <toolbarbutton id="grusearch" label="Gruppi" oncommand="groupsearch();"/>
-      <!--<toolbarbutton id="dirsearch" label="Directory" oncommand="directorysearch();"/>-->
-      <!--<toolbarbutton id="newsearch" label="News" oncommand="newssearch();"/>-->
-      <toolbarbutton id="pdfsearch" label="Search PDF" oncommand="pdfsearch()"/>
-     
-      
-      
-      <toolbarseparator/>
-      
       <radiogroup orient="horizontal">
-        <radio id="italiano" selected="true" label="Ita"/>
-        <radio id="international" label="Web"/>
+        <radio id="italiano" 
+	       label="Ita"
+	       style="FONT-FAMILY: Verdana,Helvetica;
+                      font-size: 10pt; 
+		      color: #000000;"
+               class="menuitem-iconic"/>
+        <radio id="international" 
+	       selected="true" 
+	       label="Web"
+	       style="FONT-FAMILY: Verdana,Helvetica;
+                      font-size: 10pt; 
+		      color: #000000;"
+               class="menuitem-iconic"/>
       </radiogroup>
-      <toolbarseparator/>
-      <toolbarbutton id="about" label="About" oncommand="about()"/> 
-    
+     <toolbarseparator/>
+      <toolbarbutton type="menu"
+		     label="Ing.Unisannio" 
+		     style="FONT-FAMILY: Verdana,Helvetica;
+			    font-size: 10pt;
+			    font-style: italic;
+			    color: #0000ff;"
+		     image="chrome://ingunisannio/content/ingunisannio.png"
+		     class="menuitem-iconic" accesskey="i">
+        <menupopup>
+          <menuitem label="Student Portal"
+		    style="FONT-FAMILY: Verdana,Helvetica;
+			   font-size: 10pt; 
+			   font-style: italic; 
+			   color: #000000;"
+                    class="menuitem-iconic"
+		    image="chrome://ingunisannio/content/ingunisannio.png"
+		    oncommand="studentPortal()"/>
+	  <menuseparator/>
+	  <menuitem label="Show Avvisi"
+		    style="FONT-FAMILY: Verdana,Helvetica;
+			   font-size: 10pt; 
+			   font-style: italic; 
+			   color: #000000;"
+		    image="chrome://ingunisannio/content/rss.gif"
+                    class="menuitem-iconic"
+		    oncommand="savvisi()"/>
+	  <menuitem label="Forum Unisannio"
+		    style="FONT-FAMILY: Verdana,Helvetica;
+			   font-size: 10pt; 
+			   font-style: italic; 
+			   color: #000000;"
+                    class="menuitem-iconic"
+		    image="chrome://ingunisannio/content/forum.ico"
+		    oncommand="forum()"/>
+	  <menuitem label="about"
+		    style="FONT-FAMILY: Verdana,Helvetica;
+			   font-size: 10pt; 
+			   font-style: italic; 
+			   color: #000000;"
+                    class="menuitem-iconic"
+		    image="chrome://ingunisannio/content/info.png"
+		    oncommand="aboutEsteban()"/>
+	</menupopup>
+      </toolbarbutton>
+      <toolbarbutton id="about" 
+		     label="About" 
+		     style="FONT-FAMILY: Verdana,Helvetica;
+			    font-size: 10pt; 
+			    color: #000000;"
+                     class="menuitem-iconic"
+		     image="chrome://ingunisannio/content/info.png"
+		     oncommand="about()"/> 
     </toolbaritem>
   </toolbarpalette>
   
   
   <toolbox id="navigator-toolbox">
     <toolbar accesskey="R" hidden="false" chromeclass="toolbar" class="chromeclass-toolbar" 
-	     customizable="false" id="firegoogletoolbar" mode="full" toolbarname="FireGoogle Toolbar [shift+F1]" 
+	     customizable="false" id="firegoogletoolbar" mode="full" toolbarname="Ing.Unisannio Toolbar [shift+F1]" 
 	     inherits="collapsed,hidden" persist="collapsed,hidden" defaultset="fgbar"/>
   </toolbox>
-  
-  
+    
 </overlay>

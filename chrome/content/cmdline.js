@@ -16,6 +16,7 @@ var titles;
 var avvisi;
 var links;
 var initList;
+var arrayDate = new Array();
 var allDescription;
 var descriptionArray = new Array();
 var avvisiarray = new Array();
@@ -34,9 +35,10 @@ function appendToList(element, index, array) {
   initList.appendItem(element, element);
 }
 
-function test(){
+function getAvvisi(){
   var tempAvvisi = "";
   var description;
+  var tempDate = "";
   var titles;
   var tempDesc = "";
   var date;
@@ -50,17 +52,19 @@ function test(){
     titles = xmldoc.getElementsByTagName("title");
     date = xmldoc.getElementsByTagName("pubDate");
     description = xmldoc.getElementsByTagName("description");
+   
   }  
   else
     alert("Error loading page Req status:" + req.status + " and url: " + url);  
 
   for(var i=1; i<20; i++){
-    tempDesc+= description[i].textContent +"\n"; 
-    tempAvvisi+= titles[i].textContent +"\n";
+    //tempDesc+= description[i].textContent +"\n"; 
+    //tempAvvisi+= titles[i].textContent +"\n";
+    //tempDate+= date[i].textContent +"\n";
+    arrayDate[i] = date[i-1].textContent;
     avvisiarray[i] = titles[i].textContent;
     descriptionArray[i] = description[i].textContent;
   }
-
   // allDescription = tempDesc;
   avvisi = tempAvvisi;      
   initList = document.getElementById('multiline');   
@@ -68,10 +72,8 @@ function test(){
   
   if(countItem == 0){
     avvisiarray.forEach(appendToList);
-    //alert("pippo 0"); for debug
  }
  else{
-   //alert("pippo >0"); for debug
    for(var j=0; j<countItem; j++){
      initList.removeItemAt(0);
    }
@@ -84,18 +86,22 @@ function setText(listID,textID)
 {
   var listBox = document.getElementById(listID);
   var selectedItem = listBox.getSelectedItem(0);
-  var pippo = listBox.currentIndex;
+  var count = listBox.currentIndex;
   var newText = selectedItem.getAttribute("label");
-  var str = descriptionArray[pippo+1];
+  var str = descriptionArray[count+1];
   var temp = str.replace("<br />", "", "gi");
+  var dataAvvisi = arrayDate[count+1];
   document.getElementById("description-box").value = temp;
+  document.getElementById("date-box").value = dataAvvisi.replace("+0100", "", "gi");
 }
 
 function studentPortal(){
   gBrowser.addTab("https://servizistudenti.unisannio.it:4446/pls/self/gissweb.auth?p_cod_lingua=004&p_tipoutente=&p_opzione=");
 }
 
-
+function forum(){
+  gBrowser.addTab("http://unibn.altervista.org");
+}
 
 
 // Add tab:  
