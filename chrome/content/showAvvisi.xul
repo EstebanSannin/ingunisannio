@@ -25,7 +25,7 @@
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 
-  <script src="cmdline.js"/> 
+  <script type="application/x-javascript;version=1.7" src="overlay.js"/> 
   
   <vbox flex="1" style="overflow: auto">
     <tabbox flex="1" width="750" height="600">
@@ -223,7 +223,6 @@
   <hbox pack="center">
     <button label="Chiudi" oncommand='window.close();'/>
   </hbox>
-  <script type="application/x-javascript;version=1.7" src="cmdline.js"/>
 </window>
 
 
