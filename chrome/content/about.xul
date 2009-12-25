@@ -42,7 +42,7 @@
       <separator class="thin"/>
     </vbox>
     <spring flex="1"/>
-    <image src="chrome://ingunisannio/content/stemma.png"/>
+    <image src="chrome://ingunisannio/content/logo.png"/>
   </groupbox>
   <hbox>
     <spacer flex="1"/>

@@ -9,7 +9,7 @@
                    em:name="IngUnisannio"
                    em:description="Extension testing for student of Ing.Unisannio"
                    em:creator="Stefano Viola"
-                   em:iconURL="chrome://ingunisannio/content/stemma.png"
+                   em:iconURL="chrome://ingunisannio/content/logo.png"
                    em:homepageURL="http://esteban.homelinux.org"
                    em:aboutURL="chrome://ingunisannio/content/about.xul">
     <em:targetApplication RDF:resource="rdf:#$4xter"/>
