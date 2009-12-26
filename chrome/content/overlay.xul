@@ -36,7 +36,7 @@
 			     font-size: 10pt; 
 			     color: #0000ff;"
 		      class="menuitem-iconic"
-	      image="chrome://ingunisannio/content/ingunisannio.png"
+	      image="chrome://ingunisannio/skin/ingunisannio.png"
 	  >
     <menupopup>
           <menuitem label="Student Portal"
@@ -45,7 +45,7 @@
 			   font-style: italic; 
 			   color: #000000;"
                     class="menuitem-iconic"
-		    image="chrome://ingunisannio/content/ingunisannio.png"
+		    image="chrome://ingunisannio/skin/ingunisannio.png"
 		    oncommand="studentPortal()"/>
 	  <menuseparator/>
 	  <menuitem label="Show Avvisi"
@@ -53,7 +53,7 @@
 			   font-size: 10pt; 
 			   font-style: italic; 
 			   color: #000000;"
-		    image="chrome://ingunisannio/content/rss.gif"
+		    image="chrome://ingunisannio/skin/rss.gif"
                     class="menuitem-iconic"
 		    oncommand="savvisi()"/>
 	  <menuitem label="Forum Unisannio"
@@ -62,7 +62,7 @@
 			   font-style: italic; 
 			   color: #000000;"
                     class="menuitem-iconic"
-		    image="chrome://ingunisannio/content/forum.ico"
+		    image="chrome://ingunisannio/skin/forum.ico"
 		    oncommand="forum()"/>
 	  <menuitem label="about"
 		    style="FONT-FAMILY: Verdana,Helvetica;
@@ -70,7 +70,7 @@
 			   font-style: italic; 
 			   color: #000000;"
                     class="menuitem-iconic"
-		    image="chrome://ingunisannio/content/info.png"
+		    image="chrome://ingunisannio/skin/info.png"
 		    oncommand="aboutEsteban()"/>
 	</menupopup>
     </menu>
@@ -87,7 +87,7 @@
 		      class="menuitem-iconic"
 		      tooltiptext="click right">
       </statusbarpanel> 
-      <image src='chrome://ingunisannio/content/ingunisannio.png'/>
+      <image src='chrome://ingunisannio/skin/ingunisannio.png'/>
     </hbox>
   </statusbar>
   <popupset id="ingunisannio-popupset">
@@ -98,7 +98,7 @@
 		       font-style: italic; 
 		       color: #000000;"
                 class="menuitem-iconic"
-		image="chrome://ingunisannio/content/ingunisannio.png"
+		image="chrome://ingunisannio/skin/ingunisannio.png"
 		oncommand="studentPortal()"/>
       <menuseparator/>
       <menuitem label="Show Avvisi"
@@ -106,7 +106,7 @@
                        font-size: 10pt; 
 		       font-style: italic; 
 		       color: #000000;"
-		image="chrome://ingunisannio/content/rss.gif"
+		image="chrome://ingunisannio/skin/rss.gif"
                 class="menuitem-iconic"
 		oncommand="savvisi()"/>
       <menuitem label="Forum Unisannio"
@@ -115,7 +115,7 @@
 		       font-style: italic; 
 		       color: #000000;"
                 class="menuitem-iconic"
-		image="chrome://ingunisannio/content/forum.ico"
+		image="chrome://ingunisannio/skin/forum.ico"
 		oncommand="forum()"/>
       <menuitem label="about"
 		style="FONT-FAMILY: Verdana,Helvetica;
@@ -123,7 +123,7 @@
 		       font-style: italic; 
 		       color: #000000;"
                 class="menuitem-iconic"
-		image="chrome://ingunisannio/content/info.png"
+		image="chrome://ingunisannio/skin/info.png"
 		oncommand="aboutEsteban()"/>
     </popup>
   </popupset>
@@ -143,7 +143,7 @@
 			      font-size: 10pt; 
 			      color: #000000;"
                        class="menuitem-iconic"
-		       image="chrome://ingunisannio/content/google.png"
+		       image="chrome://ingunisannio/skin/google.png"
 		       control="searchtext"/>
 	<textbox id="searchtext"
 		 style="FONT-FAMILY: Verdana,Helvetica;
@@ -161,7 +161,7 @@
 			    font-size: 10pt; 
 			    color: #000000;"
                      class="menuitem-iconic"
-		     image="chrome://ingunisannio/content/web.png"
+		     image="chrome://ingunisannio/skin/web.png"
 		     oncommand="websearch();"/>
       <toolbarbutton id="immsearch" 
 		     label="Immagini" 
@@ -169,7 +169,7 @@
 			    font-size: 10pt; 
 			    color: #000000;"
                      class="menuitem-iconic"
-		     image="chrome://ingunisannio/content/image.png"
+		     image="chrome://ingunisannio/skin/image.png"
 		     oncommand="imagesearch();"/>
       <toolbarbutton id="pdfsearch" 
 		     label="PDF" 
@@ -177,7 +177,7 @@
 			    font-size: 10pt; 
 			    color: #000000;"
                      class="menuitem-iconic"
-		     image="chrome://ingunisannio/content/pdf.jpg"
+		     image="chrome://ingunisannio/skin/pdf.jpg"
 		     oncommand="pdfsearch()"/>
       <toolbarbutton id="biblioteca"
 		     label="Biblioteca"
@@ -210,7 +210,7 @@
 			    font-size: 10pt;
 			    font-style: italic;
 			    color: #0000ff;"
-		     image="chrome://ingunisannio/content/ingunisannio.png"
+		     image="chrome://ingunisannio/skin/ingunisannio.png"
 		     class="menuitem-iconic" accesskey="i">
         <menupopup>
           <menuitem label="Student Portal"
@@ -219,7 +219,7 @@
 			   font-style: italic; 
 			   color: #000000;"
                     class="menuitem-iconic"
-		    image="chrome://ingunisannio/content/ingunisannio.png"
+		    image="chrome://ingunisannio/skin/ingunisannio.png"
 		    oncommand="studentPortal()"/>
 	  <menuseparator/>
 	  <menuitem label="Show Avvisi"
@@ -227,7 +227,7 @@
 			   font-size: 10pt; 
 			   font-style: italic; 
 			   color: #000000;"
-		    image="chrome://ingunisannio/content/rss.gif"
+		    image="chrome://ingunisannio/skin/rss.gif"
                     class="menuitem-iconic"
 		    oncommand="savvisi()"/>
 	  <menuitem label="Forum Unisannio"
@@ -236,7 +236,7 @@
 			   font-style: italic; 
 			   color: #000000;"
                     class="menuitem-iconic"
-		    image="chrome://ingunisannio/content/forum.ico"
+		    image="chrome://ingunisannio/skin/forum.ico"
 		    oncommand="forum()"/>
 	  <menuitem label="about"
 		    style="FONT-FAMILY: Verdana,Helvetica;
@@ -244,7 +244,7 @@
 			   font-style: italic; 
 			   color: #000000;"
                     class="menuitem-iconic"
-		    image="chrome://ingunisannio/content/info.png"
+		    image="chrome://ingunisannio/skin/info.png"
 		    oncommand="aboutEsteban()"/>
 	</menupopup>
       </toolbarbutton>
@@ -254,7 +254,7 @@
 			    font-size: 10pt; 
 			    color: #000000;"
                      class="menuitem-iconic"
-		     image="chrome://ingunisannio/content/info.png"
+		     image="chrome://ingunisannio/skin/info.png"
 		     oncommand="about()"/> 
     </toolbaritem>
   </toolbarpalette>

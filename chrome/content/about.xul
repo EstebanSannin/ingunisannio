@@ -13,7 +13,7 @@
   GNU General Public License for more details.
   
   You should have received a copy of the GNU General Public License
-  along with 'ItasaNotifier'.  If not, see <http://www.gnu.org/licenses/>.
+  along with 'Ingunisannio'.  If not, see <http://www.gnu.org/licenses/>.
 
   Author: Stefano Viola, stefanoviola [at] sanniolug [dot] org 
 
@@ -42,7 +42,7 @@
       <separator class="thin"/>
     </vbox>
     <spring flex="1"/>
-    <image src="chrome://ingunisannio/content/logo.png"/>
+    <image src="chrome://ingunisannio/skin/logo.png"/>
   </groupbox>
   <hbox>
     <spacer flex="1"/>
