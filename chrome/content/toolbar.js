@@ -20,6 +20,13 @@ function websearch() {
   window.content.document.location.href = strsearch;
 }
 
+//ricerca libri biblioteca D.I.N.G.
+function biblioteca() {
+  var site = "http://polosbn.bnnonline.it/SebinaOpac/Opac?AutEnteDesc=&LIBERA=&PoloBiblio=NAP02&TitoloBase2="+getLabel()+"&action=search&filter=&kindOfSearch=simple&list=&listaTitoli.x=24&listaTitoli.y=10&startat=0&thAutEnteDesc=&thCategoria=Libro%20Moderno&thCategoria=Libro%20Antico&thTitoloBase2=";
+    window.content.document.location.href = site;
+}
+
+
 //ricerca pdf con google dorks
 function pdfsearch(){
   var itasearch;

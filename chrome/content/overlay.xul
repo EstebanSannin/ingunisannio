@@ -178,7 +178,14 @@
                      class="menuitem-iconic"
 		     image="chrome://ingunisannio/content/pdf.jpg"
 		     oncommand="pdfsearch()"/>
-      
+      <toolbarbutton id="biblioteca"
+		     label="Biblioteca"
+		     style="FONT-FAMILY: Verdana,Helvetica;
+			    font-size: 10pt; 
+			    color: #000000;"
+		     class="menuitem-iconic"
+		     image="chrome://ingunisannio/skin/biblio.png"
+		     oncommand="biblioteca()"/>
       <toolbarseparator/>
       <radiogroup orient="horizontal">
         <radio id="italiano" 
