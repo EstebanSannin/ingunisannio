@@ -24,10 +24,10 @@ var ingunisannio = {
     avvisi: '',
     links: '',
     initList: '',
-    arrayDate: [],
+    arrayDate: new Array(),
     allDescription: '',
-    descriptionArray: [],
-    avvisiarray: [],
+    descriptionArray: new Array(),
+    avvisiarray: new Array(),
     url: "http://www.ing.unisannio.it/avvisi/rss20.xml",
 
     onLoad: function() {
