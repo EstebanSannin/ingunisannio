@@ -167,7 +167,7 @@
 			    color: #000000;"
                      class="menuitem-iconic"
 		     image="chrome://ingunisannio/skin/web.png"
-		     oncommand="websearch();"/>
+		     oncommand="toolbar.websearch();"/>
       <toolbarbutton id="immsearch" 
 		     label="Immagini" 
 		     style="FONT-FAMILY: Verdana,Helvetica;
@@ -175,7 +175,7 @@
 			    color: #000000;"
                      class="menuitem-iconic"
 		     image="chrome://ingunisannio/skin/image.png"
-		     oncommand="imagesearch();"/>
+		     oncommand="toolbar.imagesearch();"/>
       <toolbarbutton id="pdfsearch" 
 		     label="PDF" 
 		     style="FONT-FAMILY: Verdana,Helvetica;
@@ -183,7 +183,7 @@
 			    color: #000000;"
                      class="menuitem-iconic"
 		     image="chrome://ingunisannio/skin/pdf.jpg"
-		     oncommand="pdfsearch()"/>
+		     oncommand="toolbar.pdfsearch()"/>
       <toolbarbutton id="biblioteca"
 		     label="Biblioteca"
 		     style="FONT-FAMILY: Verdana,Helvetica;
@@ -191,7 +191,7 @@
 			    color: #000000;"
 		     class="menuitem-iconic"
 		     image="chrome://ingunisannio/skin/biblio.png"
-		     oncommand="biblioteca()"/>
+		     oncommand="toolbar.biblioteca()"/>
       <toolbarseparator/>
       <radiogroup orient="horizontal">
         <radio id="italiano" 

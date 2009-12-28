@@ -22,7 +22,8 @@
 <window class="dialog"
 	title="ING Unisannio - About" orient="vertical" 
 	autostretch="always" onload="sizeToContent()"
-	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml">
   
   <groupbox align="center" orient="horizontal">
     <vbox>
@@ -36,15 +37,16 @@
       <separator class="thin"/>
       <text value="Home Page:" 
 	    style="font-weight: bold;"/>
-      <text value="http://esteban.homelinux.org"
-	    style="color: blue;"
+      <text class="text-link" 
+	    value="http://esteban.homelinux.org"
 	    onclick="window.open('http://esteban.homelinux.org'); window.close();"/>
-      <separator class="thin"/>
     </vbox>
     <spring flex="1"/>
     <image src="chrome://ingunisannio/skin/logo.png"/>
   </groupbox>
+     
   <hbox>
+    
     <spacer flex="1"/>
     <button label="Chiudi" 
 	    oncommand="window.close();"/>
