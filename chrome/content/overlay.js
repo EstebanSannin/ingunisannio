@@ -43,7 +43,7 @@ var ingunisannio = {
     },
 
     appendToList: function(element, index, array) {
-	initList.appendItem(element, element);
+    ingunisannio.initList.appendItem(element, element);
     },
 
     getAvvisi: function() {
@@ -54,7 +54,7 @@ var ingunisannio = {
 	var tempDesc = "";
 	var date;
 	var req = new XMLHttpRequest();  
-	req.open('GET', url, false);   
+	req.open('GET', this.url, false);   
 	req.send(null);
 	//alert(req.status); for debug
 	if(req.status == 200){
@@ -72,23 +72,22 @@ var ingunisannio = {
 	    //tempDesc+= description[i].textContent +"\n"; 
 	    //tempAvvisi+= titles[i].textContent +"\n";
 	    //tempDate+= date[i].textContent +"\n";
-	    arrayDate[i] = date[i-1].textContent;
-	    avvisiarray[i] = titles[i].textContent;
-	    descriptionArray[i] = description[i].textContent;
+	    this.arrayDate[i] = date[i-1].textContent;
+	    this.avvisiarray[i] = titles[i].textContent;
+	    this.descriptionArray[i] = description[i].textContent;
 	}
-	// allDescription = tempDesc;
-	avvisi = tempAvvisi;      
-	initList = document.getElementById('multiline');   
-	var countItem = initList.getRowCount();
+	      
+	this.initList = document.getElementById('multiline');   
+	var countItem = this.initList.getRowCount();
 	
 	if(countItem == 0){
-	    avvisiarray.forEach(appendToList);
+	    this.avvisiarray.forEach(this.appendToList);
 	}
 	else{
 	    for(var j=0; j<countItem; j++){
-		initList.removeItemAt(0);
+		this.initList.removeItemAt(0);
 	    }
-	    avvisiarray.forEach(appendToList);
+	    this.avvisiarray.forEach(this.appendToList);
 	}
 	
     },
@@ -98,9 +97,9 @@ var ingunisannio = {
 	var selectedItem = listBox.getSelectedItem(0);
 	var count = listBox.currentIndex;
 	var newText = selectedItem.getAttribute("label");
-	var str = descriptionArray[count+1];
+	var str = this.descriptionArray[count+1];
 	var temp = str.replace("<br />", "", "gi");
-	var dataAvvisi = arrayDate[count+1];
+	var dataAvvisi = this.arrayDate[count+1];
 	document.getElementById("description-box").value = temp;
 	document.getElementById("date-box").value = dataAvvisi.replace("+0100", "", "gi");
     },

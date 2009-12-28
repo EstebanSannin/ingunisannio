@@ -13,10 +13,10 @@
   GNU General Public License for more details.
   
   You should have received a copy of the GNU General Public License
-  along with 'ItasaNotifier'.  If not, see <http://www.gnu.org/licenses/>.
+  along with 'IngUnisannio'.  If not, see <http://www.gnu.org/licenses/>.
 
   Author: Stefano Viola, stefanoviola [at] sanniolug [dot] org 
-
+  Collaborator: Ivan Morgillo < imorgillo [at] sanniolug [dot] org >
 -->
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <window class="dialog"
@@ -37,14 +37,14 @@
 	<tabpanel>
 	  <spacer flex="1" />
 	  <vbox>
-	    <image style="width: 80px; height: 80px" src="chrome://ingunisannio/content/rssm.png" />
+	    <image style="width: 80px; height: 80px" src="chrome://ingunisannio/skin/rssm.png" />
 	  </vbox>
 	  <groupbox flex="1">
 	    <caption label="Ultimi 20 Avvisi:" />
 	    <listbox id="multiline" 
 		     rows="11" 
 		     flex="1" 
-		     onselect="setText('multiline','single-text');">
+		     onselect="ingunisannio.setText('multiline','single-text');">
 	      <listhead>
 		<listheader label="Titolo" />
 	      </listhead>
@@ -52,8 +52,8 @@
 	    <hbox pack="left">
 	      <button style="width: 20px; height: 30px"
 		      label="Refresh" 
-		      image="ingunisannio.png"
-		      oncommand="getAvvisi()"/>
+		      image="chrome://ingunisannio/skin/ingunisannio.png"
+		      oncommand="ingunisannio.getAvvisi()"/>
 	    </hbox>
 	    <vbox align="left">
 	      <label style="width:10em" 
@@ -206,7 +206,7 @@
 	  </vbox>
 	  <vbox>
 	    <hbox>
-	<image style="width: 80px; height: 80px" src="chrome://ingunisannio/content/tele.png"/>
+	<image style="width: 80px; height: 80px" src="chrome://ingunisannio/skin/tele.png"/>
 	</hbox>
 	<caption label="Informazioni" />
 	
