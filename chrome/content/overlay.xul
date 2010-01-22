@@ -149,7 +149,8 @@
 			      color: #000000;"
                        class="menuitem-iconic"
 		       image="chrome://ingunisannio/skin/google.png"
-		       control="searchtext"/>
+		       control="searchtext"
+		       oncommand="window.content.document.location.href = 'http://google.it'"/>
 	<textbox id="searchtext"
 		 style="FONT-FAMILY: Verdana,Helvetica;
 			font-size: 9pt; 
