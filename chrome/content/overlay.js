@@ -103,13 +103,6 @@ var ingunisannio = {
 	document.getElementById("description-box").value = temp;
 	document.getElementById("date-box").value = dataAvvisi.replace("+0100", "", "gi");
     },
-    
-    alertNewAvvisi: function() {
-	for(;;) {
-	    	
-	setTimeout('alert("pippo")',3000);
-	}
-    },
 
     goToStudentportal: function() {
 	gBrowser.addTab("https://servizistudenti.unisannio.it:4446/pls/self/gissweb.auth?p_cod_lingua=004&p_tipoutente=&p_opzione=");
