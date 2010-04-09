@@ -1,19 +1,16 @@
-/* This is just an example.  You shouldn't do this. */
+/*  skin/overlay.css  
+*
+*  Author: Stefano Viola
+*  License: GPL v.3
+*
+*
+*/
 
-#ingunisannio-toolbar-button
-{
-  list-style-image: url("chrome://ingunisannio/skin/avvisi.png");
-  -moz-image-region: rect(0px 24px 24px 0px);
+#ingunisannio-toolbar-button {
+  list-style-image: url("chrome://ingunisannio/skin/button.png");
 }
-#ingunisannio-toolbar-button:hover
-{
-  -moz-image-region: rect(24px 24px 48px  0px);
+
+toolbar[iconsize="small"] #ingunisannio-toolbar-button {
+  list-style-image: url("chrome://ingunisannio/skin/button_small.png");
 }
-[iconsize="small"] #ingunisannio-toolbar-button
-{
-  -moz-image-region: rect( 0px 40px 16px 24px);
-}
-[iconsize="small"] #ingunisannio-toolbar-button:hover
-{
-  -moz-image-region: rect(24px 40px 40px 24px);
-}
+

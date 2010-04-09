@@ -1,222 +1,412 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  This file is part of 'IngUnisannio'.
-
-  'IngUnisannio' is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License,
-  or any later version.
-  
-  'IngUnisannio' is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
-  
-  You should have received a copy of the GNU General Public License
-  along with 'IngUnisannio'.  If not, see <http://www.gnu.org/licenses/>.
-
-  Author: Stefano Viola, stefanoviola [at] sanniolug [dot] org 
-  Collaborator: Ivan Morgillo < imorgillo [at] sanniolug [dot] org >
+*  This file is part of 'IngUnisannio'.
+*
+*  'IngUnisannio' is free software: you can redistribute it and/or modify
+*  it under the terms of the GNU General Public License as published by
+*  the Free Software Foundation, either version 3 of the License,
+*  or any later version.
+*  
+*  'IngUnisannio' is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU General Public License for more details.
+*  
+*  You should have received a copy of the GNU General Public License
+*  along with 'IngUnisannio'.  If not, see <http://www.gnu.org/licenses/>.
+*
+*  Author: Stefano Viola, stefanoviola [at] sanniolug [dot] org 
+*  Collaborator: Ivan Morgillo < imorgillo [at] sanniolug [dot] org >
 -->
+
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <window class="dialog"
-	title="ING Unisannio - Avvisi" orient="vertical" 
+	title="ING Unisannio v.0.2" orient="vertical" 
 	autostretch="always" onload="sizeToContent()"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 
   <script type="application/x-javascript;version=1.7" src="overlay.js"/> 
+  <script type="application/x-javascript;version=1.7" src="toolbar.js"/>
+  <script type="application/x-javascript;version=1.7" src="update.js"/>
   
   <vbox flex="1" style="overflow: auto">
-    <tabbox flex="1" width="750" height="600">
+    <tabbox flex="1" width="670" height="625">
       <tabs>
 	<tab label="Gestione Avvisi"/>
 	<tab label="Video Lezioni"/>
+	<tab label="Strumenti"/>
       </tabs>
       <tabpanels>
 	<tabpanel>
 	  <spacer flex="1" />
+	  
 	  <vbox>
-	    <image style="width: 80px; height: 80px" src="chrome://ingunisannio/skin/rssm.png" />
+	    <image style="width: 150px; height: 150px"
+	    src="chrome://ingunisannio/skin/rssm.png" />
+	    <label style="width:10em" 
+		   value="Link Utili:"/>
+	    
+	    <hbox>
+	      <label class="text-link"
+		     value="1. Student Portal"
+		    
+		     onclick="ingunisannio.goToStudentportal_avvisi();"/>
+	    </hbox>
+	    
+	    <hbox>
+	      <label class="text-link"
+		     value="2. Home Ingegneria"
+		     style="FONT-FAMILY: Verdana,Helvetica;
+			    font-size: 10pt; 
+			    font-style: italic; 
+			    color: blue;"
+		     onclick="ingunisannio.goToHomeIng();"/>
+	    </hbox>
+	    
+	    
+	    <!-- Box avvisi  -->
 	  </vbox>
 	  <groupbox flex="1">
 	    <caption label="Ultimi 20 Avvisi:" />
 	    <listbox id="multiline" 
-		     rows="11" 
+		     rows="8" 
 		     flex="1" 
 		     onselect="ingunisannio.setText('multiline','single-text');">
 	      <listhead>
 		<listheader label="Titolo" />
 	      </listhead>
 	    </listbox>
+	    
+	    <!-- Button for download Avvisi  -->
+	    
 	    <hbox pack="left">
-	      <button style="width: 20px; height: 30px"
-		      label="Refresh" 
-		      image="chrome://ingunisannio/skin/ingunisannio.png"
-		      oncommand="ingunisannio.getAvvisi()"/>
+	      <vbox>
+		<button style="width: 150px; height: 30px"
+			label="Scarica  Avvisi" 
+			image="chrome://ingunisannio/skin/ingunisannio.png"
+			oncommand="ingunisannio.getAvvisi_All();"/>
+	      </vbox>
+	      <!-- Pulsante per il link esterno relativo all'avviso
+		   selezionato -->  
+	      <button style="width: 160px; height: 30px"
+		      label="Altre Informazioni..."
+		      image="chrome://ingunisannio/skin/info.png"
+		      oncommand="ingunisannio.goToSelectPage();"/>
 	    </hbox>
+	    
+	    <!-- Label for data Avviso  -->
 	    <vbox align="left">
 	      <label style="width:10em" 
 		     value="Data di Pubblicazione:"/>
 	      <description id="date-box" 
 			   value="(no selection)" />
+	      
+	      <!-- Filtering text-box  -->
+	      <hbox align="center">
+		<label style="width:10em" value="Definisci Filtro:"/>
+		<textbox id="default"
+			 value="Filter"
+			 oninput="ingunisannio.filter('default');" />
+		<!-- Pulsante per il filtro -->
+		<button style="width: 150px; height: 30px"
+		      label="Applica Filtro" 
+			image=""
+		      oncommand="ingunisannio.getAvvisi_Filter();"/>
+	      </hbox>
+	      
+	      <!-- Text box for description  -->
     	      <textbox id="description-box" 
 		       multiline="true" 
 		       rows="9"
 		       cols="100" 
 		       readonly="true" />
 	    </vbox>
+	    
+	    <!-- Filter box  -->
+	    <hbox  align="center">
+	      <label style="width:10em" value="Input Filtro:"  />
+	      <description id="result" >
+		none yet
+	      </description>
+	    </hbox>
+	    
 	  </groupbox>
 	</tabpanel>
 	
 	
-
+	
 	<!-- Uninettuno -->
 	
 	<tabpanel>
 	  <vbox>
-	  <caption label="IngUnisannio: Video Lezioni e TV in Streaming" />
-
-	  <vbox flex="1" style="overflow: auto">
-	    <menubar id="working-menubar">
-	      <menu label="UniNettuno" accesskey="u">
-		<menupopup>
-		  <menu label="Elettrotecnica" >
-		    <menupopup>
-		      <menuitem label="Introduzione al corso; La tensione " 
-				oncommand='return playVideo("selectDemo1","videoPlayback")'/>
-		      <menuitem label="La corrente, la legge di Ohm ed il bipolo resistore " 
-				oncommand='return playVideo("selectDemo2","videoPlayback")'/>
-		      <menuitem label="La legge di Joule; il Multimetro virtuale " 
-				oncommand='return playVideo("selectDemo3","videoPlayback")'/>
-		      <menuitem label="Serie e parallelo; bipolo equivalente" 
-				oncommand='return playVideo("selectDemo4","videoPlayback")'/>
-		      <menuitem label="I generatori; classificazione dei bipoli" 
-				oncommand='return playVideo("selectDemo5","videoPlayback")'/>
-		    </menupopup>
-		  </menu>
-		</menupopup>
-	      </menu>
-	      <menu label="Tv" accesskey="v" >
-		<menupopup>
-		  <menuitem label="Rai Uno" oncommand='return playVideo("selectDemo6","videoPlayback")'/>
-		  <menuitem label="Rai Due" oncommand='return playVideo("selectDemo7","videoPlayback")'/>
-		  <menuitem label="Rai Tre" oncommand='return playVideo("selectDemo8","videoPlayback")'/>
-		  <menuitem label="Rai Quattro" oncommand='return playVideo("selectDemo9","videoPlayback")'/>
-		  <menuitem label="Rai News 24" oncommand='return playVideo("selectDemo10","videoPlayback")'/>
-		</menupopup>
-	      </menu>
-	    </menubar>
+	    <caption label="IngUnisannio: Video Lezioni e TV in Streaming" />
 	    
-	    <script type="text/javascript">
-	      function playVideo(sourceId, targetId) {
-	      if (typeof(sourceId)=='string') {sourceId=document.getElementById(sourceId);}
-	      if (typeof(targetId)=='string') {targetId=document.getElementById(targetId);}
-	      targetId.innerHTML=sourceId.innerHTML;
-	      return false;
-	      }
-	    </script>
-	  
-		  <html:div id='videoPlayback'
-			    style='width: 405px; height:290px; background-color:blue;'>
-		    
-		  </html:div>	    
+	    <vbox flex="1" style="overflow: auto">
+	      <menubar id="working-menubar">
+		<menu label="UniNettuno" accesskey="u">
+		  <menupopup>
+		    <menu label="Elettrotecnica" >
+		      <menupopup>
+			<menuitem label="Introduzione al corso; La tensione " 
+				  oncommand='return playVideo("selectDemo1","videoPlayback")'/>
+			<menuitem label="La corrente, la legge di Ohm ed il bipolo resistore " 
+				  oncommand='return playVideo("selectDemo2","videoPlayback")'/>
+			<menuitem label="La legge di Joule; il Multimetro virtuale " 
+				  oncommand='return playVideo("selectDemo3","videoPlayback")'/>
+			<menuitem label="Serie e parallelo; bipolo equivalente" 
+				  oncommand='return playVideo("selectDemo4","videoPlayback")'/>
+			<menuitem label="I generatori; classificazione dei bipoli" 
+				  oncommand='return playVideo("selectDemo5","videoPlayback")'/>
+		      </menupopup>
+		    </menu>
+		  </menupopup>
+		</menu>
+		<menu label="Tv" accesskey="v" >
+		  <menupopup>
+		    <menuitem label="Rai Uno" oncommand='return playVideo("selectDemo6","videoPlayback")'/>
+		    <menuitem label="Rai Due" oncommand='return playVideo("selectDemo7","videoPlayback")'/>
+		    <menuitem label="Rai Tre" oncommand='return playVideo("selectDemo8","videoPlayback")'/>
+		    <menuitem label="Rai Quattro" oncommand='return playVideo("selectDemo9","videoPlayback")'/>
+		    <menuitem label="Rai News 24" oncommand='return playVideo("selectDemo10","videoPlayback")'/>
+		  </menupopup>
+		</menu>
+	      </menubar>
+	      
+	      <script type="text/javascript">
+		function playVideo(sourceId, targetId) {
+		if (typeof(sourceId)=='string') {sourceId=document.getElementById(sourceId);}
+		if (typeof(targetId)=='string') {targetId=document.getElementById(targetId);}
+		targetId.innerHTML=sourceId.innerHTML;
+		return false;
+		}
+	      </script>
+	      
+	      <html:div id='videoPlayback'
+			style='width: 405px; height:290px; background-color:blue;'>
 		
-	    <html:div id='selectDemo1' style='display: none'>
-	      <html:embed id="lezione1"
-			  width="425%" height="350%"
-			  name="plugin"
-			  src="mms://83.221.120.201/streaming/uninettuno_itu/135182/Lez001.wmv "
-			  type="video/x-ms-asf" />
-	    </html:div>
+	      </html:div>	    
+	      
+	      <html:div id='selectDemo1' style='display: none'>
+		<html:embed id="lezione1"
+			    width="425%" height="350%"
+			    name="plugin"
+			    src="mms://83.221.120.201/streaming/uninettuno_itu/135182/Lez001.wmv "
+			    type="video/x-ms-asf" />
+	      </html:div>
+	      
+	      <html:div id='selectDemo2' style='display: none'>
+		<html:embed id="lezione2"
+			    width="425%" height="350%"
+			    name="plugin"
+			    src="mms://83.221.120.201/streaming/uninettuno_itu/116807/Lez002.wmv"
+			    type="video/x-ms-asf" />
+	      </html:div>
+	      
+	      <html:div id='selectDemo3' style='display: none'>
+		<html:embed id="lezione3"
+			    width="425%" height="350%"
+			    name="plugin"
+			    src="mms://83.221.120.201/streaming/uninettuno_itu/116808/Lez003.wmv"
+			    type="video/x-ms-asf" />
+	      </html:div>
+	      
+	      <html:div id='selectDemo4' style='display: none'>
+		<html:embed id="lezione4"
+			    width="425%" height="350%"
+			    name="plugin"
+			    src="mms://83.221.120.201/streaming/uninettuno_itu/116808/Lez003.wmv"
+			    type="video/x-ms-asf" />
+	      </html:div>
+	      
+	      <html:div id='selectDemo5' style='display: none'>
+		<html:embed id="lezione5"
+			    width="425%" height="350%"
+			    name="plugin"
+			    src="mms://83.221.120.201/streaming/uninettuno_itu/116809/Lez004.wmv"
+			    type="video/x-ms-asf" />
+	      </html:div>
+	      <html:div id='selectDemo6' style='display: none'>
+		<html:embed id="rai1"
+			    width="425%" height="350%"
+			    name="plugin"
+			    src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=983"
+			    type="video/x-ms-asf" />
+	      </html:div>
+	      
+	      <html:div id='selectDemo7' style='display: none'>
+		<html:embed id="rai2"
+			    width="425%" height="350%"
+			    name="plugin"
+			    src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=984"
+			    type="video/x-ms-asf" />
+	      </html:div>
+	      
+	      <html:div id='selectDemo8' style='display: none'>
+		<html:embed id="rai3"
+			    width="425%" height="350%"
+			    name="plugin"
+			    src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=986"
+			    type="video/x-ms-asf" />
+	      </html:div>
+	      
+	      <html:div id='selectDemo9' style='display: none'>
+		<html:embed id="rai4"
+			    width="425%" height="350%"
+			    name="plugin"
+			    src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=75708"
+			    type="video/x-ms-asf" />
+	      </html:div>
+	      
+	      <html:div id='selectDemo10' style='display: none'>
+		<html:embed id="rainews24"
+			    width="425%" height="350%"
+			    name="plugin"
+			    src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=1"
+			    type="video/x-ms-asf" />
+	      </html:div>
+	      
+	    </vbox>
 	    
-	    <html:div id='selectDemo2' style='display: none'>
-	      <html:embed id="lezione2"
-			  width="425%" height="350%"
-			  name="plugin"
-			  src="mms://83.221.120.201/streaming/uninettuno_itu/116807/Lez002.wmv"
-			  type="video/x-ms-asf" />
-	    </html:div>
-	    
-	    <html:div id='selectDemo3' style='display: none'>
-	      <html:embed id="lezione3"
-			  width="425%" height="350%"
-			  name="plugin"
-			  src="mms://83.221.120.201/streaming/uninettuno_itu/116808/Lez003.wmv"
-			  type="video/x-ms-asf" />
-	    </html:div>
-	    
-	    <html:div id='selectDemo4' style='display: none'>
-	      <html:embed id="lezione4"
-			  width="425%" height="350%"
-			  name="plugin"
-			  src="mms://83.221.120.201/streaming/uninettuno_itu/116808/Lez003.wmv"
-			  type="video/x-ms-asf" />
-	    </html:div>
-	    
-	    <html:div id='selectDemo5' style='display: none'>
-	      <html:embed id="lezione5"
-			  width="425%" height="350%"
-			  name="plugin"
-			  src="mms://83.221.120.201/streaming/uninettuno_itu/116809/Lez004.wmv"
-			  type="video/x-ms-asf" />
-	    </html:div>
-	     <html:div id='selectDemo6' style='display: none'>
-	    <html:embed id="rai1"
-			width="425%" height="350%"
-			name="plugin"
-			src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=983"
-			type="video/x-ms-asf" />
-	  </html:div>
-	    
-	    <html:div id='selectDemo7' style='display: none'>
-	      <html:embed id="rai2"
-			  width="425%" height="350%"
-			  name="plugin"
-			  src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=984"
-			  type="video/x-ms-asf" />
-	    </html:div>
-	    
-	    <html:div id='selectDemo8' style='display: none'>
-	      <html:embed id="rai3"
-			  width="425%" height="350%"
-			  name="plugin"
-			  src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=986"
-			  type="video/x-ms-asf" />
-	    </html:div>
-	    
-	    <html:div id='selectDemo9' style='display: none'>
-	      <html:embed id="rai4"
-			  width="425%" height="350%"
-			  name="plugin"
-			  src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=75708"
-			  type="video/x-ms-asf" />
-	    </html:div>
-	    
-	    <html:div id='selectDemo10' style='display: none'>
-	      <html:embed id="rainews24"
-			  width="425%" height="350%"
-			  name="plugin"
-			  src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=1"
-			  type="video/x-ms-asf" />
-	    </html:div>
-	    
-	  </vbox>
-	  
 	  </vbox>
 	  <vbox>
 	    <hbox>
-	<image style="width: 80px; height: 80px" src="chrome://ingunisannio/skin/tele.png"/>
-	</hbox>
-	<caption label="Informazioni" />
-	
-	<text value=" Selezionate lo stream dal menu"/>
-	<text value=" e godetevi le lezioni online"/>
-
+	      <image style="width: 80px; height: 80px" src="chrome://ingunisannio/skin/tele.png"/>
+	    </hbox>
+	    <caption label="Informazioni" />
+	    
+	    <text value=" Selezionate lo stream dal menu"/>
+	    <text value=" e godetevi le lezioni online"/>
+	    
 	  </vbox>
-	  </tabpanel>
-	
+	</tabpanel>
 
+
+	<!-- Stumenti -->
+	<tabpanel>
+	  <vbox>
+	    <hbox>
+	      <image style="width: 120px; height: 120px"
+		     src="chrome://ingunisannio/skin/logo.png" />
+	    
+	      <description><html:h1>Strumenti
+		IngUnisannio</html:h1></description>
+	   </hbox>
+	     	    <description><html:h3>Barra di ricerca</html:h3></description>
+	    <hbox>
+	      <toolbarbutton label="Google:"
+			     style="FONT-FAMILY: Verdana,Helvetica;
+				    font-size: 10pt; 
+				    color: #000000;"
+			     class="menuitem-iconic"
+			     image="chrome://ingunisannio/skin/google.png"
+			     control="searchtext"
+			     oncommand="window.content.document.location.href = 'http://google.it'"/>
+	      <textbox id="searchtext"
+		       style="FONT-FAMILY: Verdana,Helvetica;
+			      font-size: 9pt; 
+			      font-style: italic; 
+			      color: #000000;"
+                       class="menuitem-iconic"
+		       type="autocomplete" 
+		       autocompletesearch="form-history"
+		       />
+	     
+	      <button flex="1" 
+		      type="menu" 
+		      label="Search" 
+		      image="chrome://ingunisannio/skin/button_small.png"
+		      style="width: 20px; height: 20px">
+		<menupopup>
+		  <menuitem id="websearch" 
+			    label="Web"   
+			    class="menuitem-iconic"  
+			    image="chrome://ingunisannio/skin/web.png"  
+			    oncommand="toolbar.websearch();" />
+		  <menuitem id="immsearch" 
+			    label="Immagini"
+			    class="menuitem-iconic" 
+			    image="chrome://ingunisannio/skin/image.png"  
+			    oncommand="toolbar.imagesearch();" />
+		  <menuitem id="pdfsearch" 
+			    label="PDF"
+			    class="menuitem-iconic" 
+			    image="chrome://ingunisannio/skin/pdf.jpg"  
+			    oncommand="toolbar.pdfsearch();" />
+		  <menuitem id="biblioteca" 
+			    label="Biblioteca"
+			    class="menuitem-iconic" 
+			    image="chrome://ingunisannio/skin/biblio.png"  
+			    oncommand="toolbar.biblioteca();" />
+		</menupopup>
+	      </button>
+	      
+	      <radiogroup orient="horizontal">
+		<radio id="italiano" 
+		       label="Ita"
+		       style="FONT-FAMILY: Verdana,Helvetica;
+			      font-size: 10pt; 
+			      color: #000000;"
+		       class="menuitem-iconic"/>
+		<radio id="international" 
+		       selected="true" 
+		       label="Web"
+		       style="FONT-FAMILY: Verdana,Helvetica;
+			      font-size: 10pt; 
+			      color: #000000;"
+		       class="menuitem-iconic"/>
+	      </radiogroup>
+	      
+	      <!-- Box aggiornamento-->
+	    </hbox>
+	    <description><html:h3>Dettagli Estensione:</html:h3></description>
+	     
+	     <vbox  align="left">
+
+	       <hbox>
+		 <label style="width:10em" 
+			value="Autore:"  />
+		 <description id="autore" 
+			      style="FONT-FAMILY: Verdana,Helvetica;
+				     font-size: 10pt; 
+				     color: blue;  width:10em" >
+		 </description> 
+	       </hbox>
+
+	       <hbox>
+		 <label style="width:10em" 
+			value="Data rilascio:"  />
+		 <description id="dataRilascio" 
+			      style="FONT-FAMILY: Verdana,Helvetica;
+				     font-size: 10pt; 
+				     color: blue;  width:10em" >
+		 </description> 
+	       </hbox>
+	       <hbox>
+		 <label style="width:10em" 
+			value="Versione:"  />
+		 <description id="versione" 
+			      style="FONT-FAMILY: Verdana,Helvetica;
+				     font-size: 10pt; 
+				     color: blue;  width:10em" >
+		 </description> 
+	       </hbox>
+	       <hbox>
+		 <label style="width:10em" 
+			value="Stato:"  />
+		 <description id="aggiornamento" 
+			      style="FONT-FAMILY: Verdana,Helvetica;
+				     font-size: 10pt; 
+				     color: red;  width:10em" >
+		 </description> 
+	       </hbox>
+	       <button style="width: 100px; height: 30px" 
+		       label="ricarica" 
+		       oncommand="updateUtility.update();"/>
+	     </vbox>
+	     
+	  </vbox>
+	</tabpanel>
       </tabpanels>
     </tabbox>
   </vbox>
@@ -224,10 +414,6 @@
     <button label="Chiudi" oncommand='window.close();'/>
   </hbox>
 </window>
-
-
-
-
 
 
 

@@ -31,13 +31,13 @@ var toolbar = {
     var itasearch;
     document.getElementById("italiano").selected ? itasearch="lr%3Dlang_it" : itasearch="";
     var strsearch = "http://www.google.it/search?hl=it&q="+this.getLabel()+"&btnG=Cerca+con+Google&meta="+itasearch;
-    window.content.document.location.href = strsearch;
+    window.open(strsearch);
   },
  
 //ricerca libri biblioteca D.I.N.G.
  biblioteca: function() {
     var site = "http://polosbn.bnnonline.it/SebinaOpac/Opac?AutEnteDesc=&LIBERA=&PoloBiblio=NAP02&TitoloBase2="+this.getLabel()+"&action=search&filter=&kindOfSearch=simple&list=&listaTitoli.x=24&listaTitoli.y=10&startat=0&thAutEnteDesc=&thCategoria=Libro%20Moderno&thCategoria=Libro%20Antico&thTitoloBase2=";
-    window.content.document.location.href = site;
+    window.open(site);
   },
 
 //ricerca pdf con google dorks
@@ -45,13 +45,13 @@ var toolbar = {
     var itasearch;
     document.getElementById("italiano").selected ? itasearch="lr%3Dlang_it" : itasearch="";
     var strsearch = "http://www.google.it/search?hl=it&q=filetype%3Apdf+"+this.getLabel()+"&btnG=Cerca+con+Google&meta="+itasearch;
-    window.content.document.location.href = strsearch;
+    window.open(strsearch);
   },
 
 //ricerca immagini
  imagesearch: function() {         
     var strsearch = "http://images.google.it/images?q="+this.getLabel()+"&hl=it&btnG=Cerca+con+Google";
-    window.content.document.location.href = strsearch;
+    window.open(strsearch);
   },
 
 //ricerca nei newsgroup

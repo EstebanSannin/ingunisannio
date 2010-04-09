@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     This file is part of 'IngUnisannio'.
@@ -20,78 +20,68 @@
     Author: Stefano Viola, stefanoviola [at] sanniolug [dot] org
     Collaborator: Ivan Morgillo < imorgillo [at] sanniolug [dot] org >
   -->
-
+<?xml-stylesheet href="chrome://ingunisannio/skin/overlay.css" type="text/css"?>
 <overlay id="ingunisannio-overlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-  <window id="main-window">
+<window id="main-window">
     <popupset id="ingunisannio-popupset"/>
   </window>
+
   <script type="application/x-javascript;version=1.7" src="overlay.js"/>
   <script type="application/x-javascript;version=1.7" src="toolbar.js"/>
   
+   
   <menupopup id="menu_ToolsPopup">
     <menu id="ingunisannio-hello"
-	      label="Ing.Unisannio"
-	      style="FONT-FAMILY: Verdana,Helvetica;
-			     font-size: 10pt; 
-			     color: #0000ff;"
-		      class="menuitem-iconic"
-	      image="chrome://ingunisannio/skin/ingunisannio.png"
+	  label="Ing.Unisannio"
+	  class="menuitem-iconic"
+	  image="chrome://ingunisannio/skin/ingunisannio.png"
 	  >
     <menupopup>
           <menuitem label="Student Portal"
-		    style="FONT-FAMILY: Verdana,Helvetica;
-			   font-size: 10pt; 
-			   font-style: italic; 
-			   color: #000000;"
-                    class="menuitem-iconic"
+		    class="menuitem-iconic"
 		    image="chrome://ingunisannio/skin/ingunisannio.png"
-		    oncommand="ingunisannio.goToStudentportal()"/>
+		    oncommand="ingunisannio.goToStudentportal();"/>
 	  <menuseparator/>
 	  
 	  <menuitem label="Show Avvisi"
-		    style="FONT-FAMILY: Verdana,Helvetica;
-			   font-size: 10pt; 
-			   font-style: italic; 
-			   color: #000000;"
 		    image="chrome://ingunisannio/skin/rss.gif"
                     class="menuitem-iconic"
-		    oncommand="ingunisannio.showAvvisi()"/>
+		    oncommand="ingunisannio.showAvvisi();"/>
 	  
 	  <menuitem label="Forum Unisannio"
-		    style="FONT-FAMILY: Verdana,Helvetica;
-			   font-size: 10pt; 
-			   font-style: italic; 
-			   color: #000000;"
-                    class="menuitem-iconic"
+		    class="menuitem-iconic"
 		    image="chrome://ingunisannio/skin/forum.ico"
 		    oncommand="ingunisannio.goToForum()"/>
 	  
 	  <menuitem label="about"
-		    style="FONT-FAMILY: Verdana,Helvetica;
-			   font-size: 10pt; 
-			   font-style: italic; 
-			   color: #000000;"
-                    class="menuitem-iconic"
+		    class="menuitem-iconic"
 		    image="chrome://ingunisannio/skin/info.png"
 		    oncommand="ingunisannio.about()"/>
 	</menupopup>
     </menu>
   </menupopup>
+
+
+  
+<toolbarpalette id="BrowserToolbarPalette">
+  <toolbarbutton id="ingunisannio-toolbar-button"
+    label="Ing.Unisannio"
+    tooltiptext="Ing.Unisannio Tool"
+    oncommand="ingunisannio.showAvvisi();"
+    class="toolbarbutton-1 chromeclass-toolbar-additional"/>
+  </toolbarpalette>
+
   
   <statusbar id="status-bar">
-    <hbox align="center">
+    
       <statusbarpanel id="ingunisannio-status-bar"
 		      context="ingunisannio-status-popup"
-		      label="Ing.Unisannio"
-		      style="FONT-FAMILY: Verdana,Helvetica;
-			     font-size: 10pt; 
-			     color: #000000;"
-		      class="menuitem-iconic"
-		      tooltiptext="click right">
+		      label=""
+		      class="statusbarpanel-iconic"
+		      tooltiptext="click right"
+		      src="chrome://ingunisannio/skin/favicon.ico">
       </statusbarpanel> 
-      <image src='chrome://ingunisannio/skin/ingunisannio.png'/>
-    </hbox>
   </statusbar>
   <popupset id="ingunisannio-popupset">
     <popup id="ingunisannio-status-popup">
@@ -102,7 +92,7 @@
 		       color: #000000;"
                 class="menuitem-iconic"
 		image="chrome://ingunisannio/skin/ingunisannio.png"
-		oncommand="ingunisannio.goToStudentPortal()"/>
+		oncommand="ingunisannio.goToStudentportal()"/>
       <menuseparator/>
       <menuitem label="Show Avvisi"
 		style="FONT-FAMILY: Verdana,Helvetica;
@@ -132,7 +122,7 @@
 		oncommand="ingunisannio.about()"/>
     </popup>
   </popupset>
-
+<!--
   <keyset id="mainKeyset">
     <key id="key_fgtoggle" keycode="VK_F1" modifiers="shift" command="cmd_toggleToolbar"/>
   </keyset>
@@ -271,5 +261,5 @@
 	     customizable="false" id="firegoogletoolbar" mode="full" toolbarname="Ing.Unisannio Toolbar [shift+F1]" 
 	     inherits="collapsed,hidden" persist="collapsed,hidden" defaultset="fgbar"/>
   </toolbox>
-    
+  -->  
 </overlay>

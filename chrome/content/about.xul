@@ -28,7 +28,7 @@
   <groupbox align="center" orient="horizontal">
     <vbox>
       <text value="Ing.Unisannio Firefox Extension" style="font-weight: bold; font-size: x-large;"/>
-      <text value="ver. 1.1"/>
+      <text value="ver. 0.2"/>
       <separator class="thin"/>
       <text value="Creato da:" 
 	    style="font-weight: bold;"/>
