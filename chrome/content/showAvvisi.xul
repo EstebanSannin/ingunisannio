@@ -50,7 +50,10 @@
 	    <hbox>
 	      <label class="text-link"
 		     value="1. Student Portal"
-		    
+		     style="FONT-FAMILY: Verdana,Helvetica;
+			    font-size: 10pt; 
+			    font-style: italic; 
+			    color: blue;"
 		     onclick="ingunisannio.goToStudentportal_avvisi();"/>
 	    </hbox>
 	    
@@ -64,6 +67,25 @@
 		     onclick="ingunisannio.goToHomeIng();"/>
 	    </hbox>
 	    
+	     <hbox>
+	      <label class="text-link"
+		     value="3. Forum Unisannio"
+		     style="FONT-FAMILY: Verdana,Helvetica;
+			    font-size: 10pt; 
+			    font-style: italic; 
+			    color: blue;"
+		     onclick="ingunisannio.goToForumGui();"/>
+	    </hbox>
+
+	      <hbox>
+	      <label class="text-link"
+		     value="4. Crediti"
+		     style="FONT-FAMILY: Verdana,Helvetica;
+			    font-size: 10pt; 
+			    font-style: italic; 
+			    color: blue;"
+		     onclick="ingunisannio.about();"/>
+	    </hbox>
 	    
 	    <!-- Box avvisi  -->
 	  </vbox>

@@ -266,10 +266,15 @@ var ingunisannio = {
 	gBrowser.addTab("http://unibn.altervista.org");
     },
     
+    goToForumGui: function(){
+	window.opener.open("http://unibn.altervista.org");
+    },
+    
     goToStudentportal_avvisi: function() {
 	window.opener.open("https://servizistudenti.unisannio.it:4446/pls/self/gissweb.auth?p_cod_lingua=004&p_tipoutente=&p_opzione=");
     },
     
+
     goToHomeIng: function(){
 	window.opener.open("http://www.ing.unisannio.it");
     }
