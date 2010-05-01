@@ -1,4 +1,6 @@
 content	ingunisannio	chrome/content/
+locale	ingunisannio	it-IT	locale/it-IT/
+locale	ingunisannio	en-US	locale/en-US/
 
 overlay	chrome://browser/content/browser.xul	chrome://ingunisannio/content/overlay.xul
 

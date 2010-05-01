@@ -20,7 +20,10 @@
     Author: Stefano Viola, stefanoviola [at] sanniolug [dot] org
     Collaborator: Ivan Morgillo < imorgillo [at] sanniolug [dot] org >
   -->
-<?xml-stylesheet href="chrome://ingunisannio/skin/overlay.css" type="text/css"?>
+<?xml-stylesheet href="chrome://ingunisannio/skin/overlay.css"
+    type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://ingunisannio/locale/ingunisannio.dtd">
+
 <overlay id="ingunisannio-overlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 <window id="main-window">
@@ -44,7 +47,7 @@
 		    oncommand="ingunisannio.goToStudentportal();"/>
 	  <menuseparator/>
 	  
-	  <menuitem label="Show Avvisi"
+	  <menuitem label="&ingunisannio-status-bar.mostraAvvisi;"
 		    image="chrome://ingunisannio/skin/rss.gif"
                     class="menuitem-iconic"
 		    oncommand="ingunisannio.showAvvisi();"/>
@@ -54,7 +57,7 @@
 		    image="chrome://ingunisannio/skin/forum.ico"
 		    oncommand="ingunisannio.goToForum()"/>
 	  
-	  <menuitem label="about"
+	  <menuitem label="About"
 		    class="menuitem-iconic"
 		    image="chrome://ingunisannio/skin/info.png"
 		    oncommand="ingunisannio.about()"/>
@@ -67,7 +70,7 @@
 <toolbarpalette id="BrowserToolbarPalette">
   <toolbarbutton id="ingunisannio-toolbar-button"
     label="Ing.Unisannio"
-    tooltiptext="Ing.Unisannio Tool"
+    tooltiptext="Ing.Unisannio"
     oncommand="ingunisannio.showAvvisi();"
     class="toolbarbutton-1 chromeclass-toolbar-additional"/>
   </toolbarpalette>
@@ -75,13 +78,12 @@
   
   <statusbar id="status-bar">
     
-      <statusbarpanel id="ingunisannio-status-bar"
-		      context="ingunisannio-status-popup"
-		      label=""
-		      class="statusbarpanel-iconic"
-		      tooltiptext="click right"
-		      src="chrome://ingunisannio/skin/favicon.ico">
-      </statusbarpanel> 
+    <statusbarpanel id="ingunisannio-status-bar"
+		    context="ingunisannio-status-popup"
+		    class="statusbarpanel-iconic"
+		    tooltiptext="&ingunisannio-status-bar.righClick;"
+		    src="chrome://ingunisannio/skin/favicon.ico">
+    </statusbarpanel> 
   </statusbar>
   <popupset id="ingunisannio-popupset">
     <popup id="ingunisannio-status-popup">
@@ -94,7 +96,7 @@
 		image="chrome://ingunisannio/skin/ingunisannio.png"
 		oncommand="ingunisannio.goToStudentportal()"/>
       <menuseparator/>
-      <menuitem label="Show Avvisi"
+      <menuitem label="&ingunisannio-status-bar.mostraAvvisi;"
 		style="FONT-FAMILY: Verdana,Helvetica;
                        font-size: 10pt; 
 		       font-style: italic; 
@@ -112,7 +114,7 @@
 		image="chrome://ingunisannio/skin/forum.ico"
 		oncommand="ingunisannio.goToForum()"/>
       
-      <menuitem label="about"
+      <menuitem label="About"
 		style="FONT-FAMILY: Verdana,Helvetica;
                        font-size: 10pt; 
 		       font-style: italic; 

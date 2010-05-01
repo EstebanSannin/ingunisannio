@@ -20,9 +20,14 @@
 -->
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE overlay SYSTEM
+	  "chrome://ingunisannio/locale/ingunisannio.dtd">
+
 <window class="dialog"
-	title="ING Unisannio v.0.2" orient="vertical" 
-	autostretch="always" onload="sizeToContent()"
+	title="&ingunisannio-showAvvisi.title;"
+	orient="vertical" 
+	autostretch="always"
+	onload="sizeToContent()"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 
@@ -33,9 +38,9 @@
   <vbox flex="1" style="overflow: auto">
     <tabbox flex="1" width="670" height="625">
       <tabs>
-	<tab label="Gestione Avvisi"/>
-	<tab label="Video Lezioni"/>
-	<tab label="Strumenti"/>
+	<tab label="&ingunisannio-showAvvisi.avvisi;"/>
+	<tab label="&ingunisannio-showAvvisi.video;"/>
+	<tab label="&ingunisannio-showAvvisi.strumenti;"/>
       </tabs>
       <tabpanels>
 	<tabpanel>
@@ -43,9 +48,9 @@
 	  
 	  <vbox>
 	    <image style="width: 150px; height: 150px"
-	    src="chrome://ingunisannio/skin/rssm.png" />
+		   src="chrome://ingunisannio/skin/rssm.png" />
 	    <label style="width:10em" 
-		   value="Link Utili:"/>
+		   value="&ingunisannio-showAvvisi.links;"/>
 	    
 	    <hbox>
 	      <label class="text-link"
@@ -79,7 +84,7 @@
 
 	      <hbox>
 	      <label class="text-link"
-		     value="4. Crediti"
+		     value="4. Credits"
 		     style="FONT-FAMILY: Verdana,Helvetica;
 			    font-size: 10pt; 
 			    font-style: italic; 
@@ -90,7 +95,7 @@
 	    <!-- Box avvisi  -->
 	  </vbox>
 	  <groupbox flex="1">
-	    <caption label="Ultimi 20 Avvisi:" />
+	    <caption label="&ingunisannio-showAvvisi.latest20;" />
 	    <listbox id="multiline" 
 		     rows="8" 
 		     flex="1" 
@@ -105,14 +110,14 @@
 	    <hbox pack="left">
 	      <vbox>
 		<button style="width: 150px; height: 30px"
-			label="Scarica  Avvisi" 
+			label="&ingunisannio-showAvvisi.getAvvisi;" 
 			image="chrome://ingunisannio/skin/ingunisannio.png"
 			oncommand="ingunisannio.getAvvisi_All();"/>
 	      </vbox>
 	      <!-- Pulsante per il link esterno relativo all'avviso
 		   selezionato -->  
 	      <button style="width: 160px; height: 30px"
-		      label="Altre Informazioni..."
+		      label="&ingunisannio-showAvvisi.moreInfos;"
 		      image="chrome://ingunisannio/skin/info.png"
 		      oncommand="ingunisannio.goToSelectPage();"/>
 	    </hbox>
@@ -126,15 +131,16 @@
 	      
 	      <!-- Filtering text-box  -->
 	      <hbox align="center">
-		<label style="width:10em" value="Definisci Filtro:"/>
+		<label style="width:10em"
+		       value="&ingunisannio-showAvvisi.filtro;"/>
 		<textbox id="default"
 			 value="Filter"
 			 oninput="ingunisannio.filter('default');" />
 		<!-- Pulsante per il filtro -->
 		<button style="width: 150px; height: 30px"
-		      label="Applica Filtro" 
+			label="&ingunisannio-showAvvisi.applicaFiltro;" 
 			image=""
-		      oncommand="ingunisannio.getAvvisi_Filter();"/>
+			oncommand="ingunisannio.getAvvisi_Filter();"/>
 	      </hbox>
 	      
 	      <!-- Text box for description  -->
@@ -147,7 +153,8 @@
 	    
 	    <!-- Filter box  -->
 	    <hbox  align="center">
-	      <label style="width:10em" value="Input Filtro:"  />
+	      <label style="width:10em"
+		     value="&ingunisannio-showAvvisi.inputFiltro;"  />
 	      <description id="result" >
 		none yet
 	      </description>

@@ -1,0 +1,13 @@
+<!ENTITY ingunisannio-status-bar.righClick "Right click">
+<!ENTITY ingunisannio-status-bar.mostraAvvisi "Show news">
+<!ENTITY ingunisannio-showAvvisi.title "IngUnisannio v.0.2">
+<!ENTITY ingunisannio-showAvvisi.avvisi "News">
+<!ENTITY ingunisannio-showAvvisi.video "Videos">
+<!ENTITY ingunisannio-showAvvisi.strumenti "Tools">
+<!ENTITY ingunisannio-showAvvisi.links "Links">
+<!ENTITY ingunisannio-showAvvisi.latest20 "Latest 20 news">
+<!ENTITY ingunisannio-showAvvisi.getAvvisi "Download news">
+<!ENTITY ingunisannio-showAvvisi.moreInfos "More infos">
+<!ENTITY ingunisannio-showAvvisi.filtro "Filter">
+<!ENTITY ingunisannio-showAvvisi.applicaFiltro "Apply filter">
+<!ENTITY ingunisannio-showAvvisi.inputFiltro "Filter is">
