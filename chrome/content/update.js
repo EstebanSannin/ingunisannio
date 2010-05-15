@@ -17,12 +17,19 @@
 *
 * Author: Stefano Viola < stefanoviola [at] sanniolug [dot] org >
 * Collaborator: Ivan Morgillo < imorgillo [at] sanniolug [dot] org >
-*/
+*
+* NAME:    Update System 
+* ATHOR:   Stefano Viola
+* CONTACT: stefanoviola@sannioglug.org
+* 
+ */
 
 var updateUtility = {
     message: '',
     autore: '',
+    collaboratori: '',
     versione: '',
+    contatti: '',
     dataRilascio: '',
     url: "http://esteban.homelinux.org/extensions/ingunisannio/agg.xml",
     urlLocal: "chrome://ingunisannio/content/aggLocal.xml",
@@ -37,6 +44,8 @@ var updateUtility = {
 	 document.getElementById("autore").value = this.autore;
 	 document.getElementById("dataRilascio").value = this.dataRilascio;
 	 document.getElementById("versione").value = this.versione;
+	 document.getElementById("contatti").value = this.contatti;
+	 document.getElementById("collaboratori").value = this.collaboratori;
     },
 
  update: function(){
@@ -44,6 +53,11 @@ var updateUtility = {
      var version;
      var description;
      var builtDate;
+     var contact;
+     var collaborators;
+
+     var collaboratorsValue;
+     var contactValue;
      var titleValue;
      var versionValue;
      var descriptionValue;
@@ -74,18 +88,23 @@ var updateUtility = {
 	 linkDownload = xmldoc.getElementsByTagName("linkDownload");
 	 dateBuild = xmldoc.getElementsByTagName("lastBuildDate");
 	 authorBuild = xmldoc.getElementsByTagName("author");
-	 
-	 
+	 contact = xmldoc.getElementsByTagName("contact");
+	 collaborators = xmldoc.getElementsByTagName("collaborator"); 
+	
 	 titleValue = title[0].textContent; 
 	 versionValue = version[0].textContent;
 	 descriptionValue = description[0].textContent;
+	 contactValue = contact[0].textContent;
 	 linkDownloadValue = linkDownload[0].textContent;
 	 dateBuildValue = dateBuild[0].textContent; 
 	 authorBuildValue = authorBuild[0].textContent;
+	 collaboratorValue = collaborators[0].textContent;
 
 	 this.autore = authorBuildValue;
 	 this.dataRilascio = dateBuildValue;
 	 this.versione = versionValue;
+	 this.contatti = contactValue;
+	 this.collaboratori = collaboratorValue;
 	 //alert(titleValue+"\n"+versionValue+"\n"+descriptionValue);
 	 
 	}  
@@ -108,12 +127,16 @@ var updateUtility = {
      }
      
      if(eval(versionLocalValue)<eval(versionValue)){
-	 this.message = "E' disponibile una nuova versione dell'estensione!";
+	 this.message = "    E' disponibile una nuova versione dell'estensione!";
 	 updateUtility.check();
-	 //alert("E' disponibile una nuova versione dell'estensione");
-	 window.opener.open(linkDownloadValue, 'IngUnisannio Extension', 'width=200, height=200, toolbar=no, location=no, resizable=no, fullscreen=no, menubar=no');
-     }else{  
-	 this.message = "Non ci sono aggiornamenti";
+	 var confirm = window.confirm("Nuova versione disponibile, aggiornare?");
+         if(confirm){
+                window.opener.open(linkDownloadValue, 'IngUnisannio Extension', 'width=200, height=200, toolbar=no, location=no, resizable=no, fullscreen=no, menubar=no');
+         }else{
+                 alert("Aggiornamento rifiutato!");
+         }
+         }else{  
+	 this.message = "    Non ci sono aggiornamenti";
 	 updateUtility.check();
 	 //alert("La tua versione e' l'ultima disponibile");
      }

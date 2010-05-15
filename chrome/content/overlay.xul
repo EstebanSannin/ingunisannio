@@ -70,7 +70,7 @@
 <toolbarpalette id="BrowserToolbarPalette">
   <toolbarbutton id="ingunisannio-toolbar-button"
     label="Ing.Unisannio"
-    tooltiptext="Ing.Unisannio"
+    tooltiptext=""
     oncommand="ingunisannio.showAvvisi();"
     class="toolbarbutton-1 chromeclass-toolbar-additional"/>
   </toolbarpalette>

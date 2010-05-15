@@ -34,12 +34,12 @@
   <script type="application/x-javascript;version=1.7" src="overlay.js"/> 
   <script type="application/x-javascript;version=1.7" src="toolbar.js"/>
   <script type="application/x-javascript;version=1.7" src="update.js"/>
-  
+
   <vbox flex="1" style="overflow: auto">
     <tabbox flex="1" width="670" height="625">
       <tabs>
 	<tab label="&ingunisannio-showAvvisi.avvisi;"/>
-	<tab label="&ingunisannio-showAvvisi.video;"/>
+	<!--<tab label="&ingunisannio-showAvvisi.twitter;"/>-->
 	<tab label="&ingunisannio-showAvvisi.strumenti;"/>
       </tabs>
       <tabpanels>
@@ -156,7 +156,7 @@
 	      <label style="width:10em"
 		     value="&ingunisannio-showAvvisi.inputFiltro;"  />
 	      <description id="result" >
-		none yet
+		Nessun filtro
 	      </description>
 	    </hbox>
 	    
@@ -165,152 +165,46 @@
 	
 	
 	
-	<!-- Uninettuno -->
-	
-	<tabpanel>
-	  <vbox>
-	    <caption label="IngUnisannio: Video Lezioni e TV in Streaming" />
-	    
-	    <vbox flex="1" style="overflow: auto">
-	      <menubar id="working-menubar">
-		<menu label="UniNettuno" accesskey="u">
-		  <menupopup>
-		    <menu label="Elettrotecnica" >
-		      <menupopup>
-			<menuitem label="Introduzione al corso; La tensione " 
-				  oncommand='return playVideo("selectDemo1","videoPlayback")'/>
-			<menuitem label="La corrente, la legge di Ohm ed il bipolo resistore " 
-				  oncommand='return playVideo("selectDemo2","videoPlayback")'/>
-			<menuitem label="La legge di Joule; il Multimetro virtuale " 
-				  oncommand='return playVideo("selectDemo3","videoPlayback")'/>
-			<menuitem label="Serie e parallelo; bipolo equivalente" 
-				  oncommand='return playVideo("selectDemo4","videoPlayback")'/>
-			<menuitem label="I generatori; classificazione dei bipoli" 
-				  oncommand='return playVideo("selectDemo5","videoPlayback")'/>
-		      </menupopup>
-		    </menu>
-		  </menupopup>
-		</menu>
-		<menu label="Tv" accesskey="v" >
-		  <menupopup>
-		    <menuitem label="Rai Uno" oncommand='return playVideo("selectDemo6","videoPlayback")'/>
-		    <menuitem label="Rai Due" oncommand='return playVideo("selectDemo7","videoPlayback")'/>
-		    <menuitem label="Rai Tre" oncommand='return playVideo("selectDemo8","videoPlayback")'/>
-		    <menuitem label="Rai Quattro" oncommand='return playVideo("selectDemo9","videoPlayback")'/>
-		    <menuitem label="Rai News 24" oncommand='return playVideo("selectDemo10","videoPlayback")'/>
-		  </menupopup>
-		</menu>
-	      </menubar>
-	      
-	      <script type="text/javascript">
-		function playVideo(sourceId, targetId) {
-		if (typeof(sourceId)=='string') {sourceId=document.getElementById(sourceId);}
-		if (typeof(targetId)=='string') {targetId=document.getElementById(targetId);}
-		targetId.innerHTML=sourceId.innerHTML;
-		return false;
-		}
-	      </script>
-	      
-	      <html:div id='videoPlayback'
-			style='width: 405px; height:290px; background-color:blue;'>
-		
-	      </html:div>	    
-	      
-	      <html:div id='selectDemo1' style='display: none'>
-		<html:embed id="lezione1"
-			    width="425%" height="350%"
-			    name="plugin"
-			    src="mms://83.221.120.201/streaming/uninettuno_itu/135182/Lez001.wmv "
-			    type="video/x-ms-asf" />
-	      </html:div>
-	      
-	      <html:div id='selectDemo2' style='display: none'>
-		<html:embed id="lezione2"
-			    width="425%" height="350%"
-			    name="plugin"
-			    src="mms://83.221.120.201/streaming/uninettuno_itu/116807/Lez002.wmv"
-			    type="video/x-ms-asf" />
-	      </html:div>
-	      
-	      <html:div id='selectDemo3' style='display: none'>
-		<html:embed id="lezione3"
-			    width="425%" height="350%"
-			    name="plugin"
-			    src="mms://83.221.120.201/streaming/uninettuno_itu/116808/Lez003.wmv"
-			    type="video/x-ms-asf" />
-	      </html:div>
-	      
-	      <html:div id='selectDemo4' style='display: none'>
-		<html:embed id="lezione4"
-			    width="425%" height="350%"
-			    name="plugin"
-			    src="mms://83.221.120.201/streaming/uninettuno_itu/116808/Lez003.wmv"
-			    type="video/x-ms-asf" />
-	      </html:div>
-	      
-	      <html:div id='selectDemo5' style='display: none'>
-		<html:embed id="lezione5"
-			    width="425%" height="350%"
-			    name="plugin"
-			    src="mms://83.221.120.201/streaming/uninettuno_itu/116809/Lez004.wmv"
-			    type="video/x-ms-asf" />
-	      </html:div>
-	      <html:div id='selectDemo6' style='display: none'>
-		<html:embed id="rai1"
-			    width="425%" height="350%"
-			    name="plugin"
-			    src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=983"
-			    type="video/x-ms-asf" />
-	      </html:div>
-	      
-	      <html:div id='selectDemo7' style='display: none'>
-		<html:embed id="rai2"
-			    width="425%" height="350%"
-			    name="plugin"
-			    src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=984"
-			    type="video/x-ms-asf" />
-	      </html:div>
-	      
-	      <html:div id='selectDemo8' style='display: none'>
-		<html:embed id="rai3"
-			    width="425%" height="350%"
-			    name="plugin"
-			    src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=986"
-			    type="video/x-ms-asf" />
-	      </html:div>
-	      
-	      <html:div id='selectDemo9' style='display: none'>
-		<html:embed id="rai4"
-			    width="425%" height="350%"
-			    name="plugin"
-			    src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=75708"
-			    type="video/x-ms-asf" />
-	      </html:div>
-	      
-	      <html:div id='selectDemo10' style='display: none'>
-		<html:embed id="rainews24"
-			    width="425%" height="350%"
-			    name="plugin"
-			    src="http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=1"
-			    type="video/x-ms-asf" />
-	      </html:div>
-	      
-	    </vbox>
-	    
-	  </vbox>
-	  <vbox>
-	    <hbox>
-	      <image style="width: 80px; height: 80px" src="chrome://ingunisannio/skin/tele.png"/>
-	    </hbox>
-	    <caption label="Informazioni" />
-	    
-	    <text value=" Selezionate lo stream dal menu"/>
-	    <text value=" e godetevi le lezioni online"/>
-	    
-	  </vbox>
+	<!-- twitter -->
+<!--
+<tabpanel>
+
+<description><html:h1>Twitter Unisannio</html:h1></description>
+
+<html:script src="http://widgets.twimg.com/j/2/widget.js"></html:script>
+<html:script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 6000,
+  width: 'auto',
+  height: 300,
+  theme: {
+    shell: {
+      background: '#333333',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#000000',
+      color: '#ffffff',
+      links: '#4aed05'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: false,
+    hashtags: true,
+    timestamp: true,
+    avatars: true,
+    behavior: 'all'
+  }
+}).render().setUser('unisannio').start();
+</html:script>
+
 	</tabpanel>
-
-
+-->
 	<!-- Stumenti -->
 	<tabpanel>
 	  <vbox>
@@ -401,7 +295,18 @@
 				     color: blue;  width:10em" >
 		 </description> 
 	       </hbox>
+		
+		<hbox>
+                 <label style="width:10em" 
+                        value="Collaboratori:"  />
+                 <description id="collaboratori" 
+                              style="FONT-FAMILY: Verdana,Helvetica;
+                                     font-size: 10pt; 
+                                     color: blue;  width:10em" >
+                 </description>
+               </hbox>
 
+		
 	       <hbox>
 		 <label style="width:10em" 
 			value="Data rilascio:"  />
@@ -421,6 +326,16 @@
 		 </description> 
 	       </hbox>
 	       <hbox>
+                 <label style="width:10em" 
+                        value="Contatti:"  />
+                 <description id="contatti" 
+                              style="FONT-FAMILY: Verdana,Helvetica;
+                                     font-size: 10pt; 
+                                     color: blue;  width:10em" >
+                 </description>
+               </hbox>
+
+	       <hbox>
 		 <label style="width:10em" 
 			value="Stato:"  />
 		 <description id="aggiornamento" 
@@ -429,8 +344,8 @@
 				     color: red;  width:10em" >
 		 </description> 
 	       </hbox>
-	       <button style="width: 100px; height: 30px" 
-		       label="ricarica" 
+	       <button style="width: 180px; height: 30px" 
+		       label="Controlla Aggiornamenti" 
 		       oncommand="updateUtility.update();"/>
 	     </vbox>
 	     

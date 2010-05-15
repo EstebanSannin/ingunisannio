@@ -35,6 +35,7 @@ var ingunisannio = {
     onLoad: function() {
 	// Do some initialization
 	ingunisannio.addToolbarButton('ingunisannio-toolbar-button');
+	ingunisannio.getAvvisi_All();
     },
 
     addToolbarButton: function (buttonId) {

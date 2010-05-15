@@ -2,7 +2,7 @@
 <!ENTITY ingunisannio-status-bar.mostraAvvisi "Mostra avvisi">
 <!ENTITY ingunisannio-showAvvisi.title "IngUnisannio v.0.2">
 <!ENTITY ingunisannio-showAvvisi.avvisi "Avvisi">
-<!ENTITY ingunisannio-showAvvisi.video "Video lezioni">
+<!ENTITY ingunisannio-showAvvisi.twitter "Twitter">
 <!ENTITY ingunisannio-showAvvisi.strumenti "Strumenti">
 <!ENTITY ingunisannio-showAvvisi.links "Link utili">
 <!ENTITY ingunisannio-showAvvisi.latest20 "Ultimi 20 avvisi">
@@ -10,4 +10,4 @@
 <!ENTITY ingunisannio-showAvvisi.moreInfos "Altre informazioni">
 <!ENTITY ingunisannio-showAvvisi.filtro "Definisci filtro">
 <!ENTITY ingunisannio-showAvvisi.applicaFiltro "Applica filtro">
-<!ENTITY ingunisannio-showAvvisi.inputFiltro "Filtro">
+<!ENTITY ingunisannio-showAvvisi.inputFiltro "Filtro:">
